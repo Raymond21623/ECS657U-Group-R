@@ -11,6 +11,9 @@ public class EnemyAi : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
+    public float maxHealth;
+
+    EnemyHealthBar healthBar;
 
     //Patroling
     public Vector3 walkPoint;
@@ -30,6 +33,7 @@ public class EnemyAi : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        healthBar = GetComponentInChildren<EnemyHealthBar>();
     }
 
     private void Update()
@@ -102,6 +106,7 @@ public class EnemyAi : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        healthBar.UpdateHealthBar(health, maxHealth);
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
