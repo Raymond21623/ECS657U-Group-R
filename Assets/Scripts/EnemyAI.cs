@@ -11,7 +11,7 @@ public class EnemyAi : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
-    public float maxHealth;
+    public float maxHealth = 100;
 
     EnemyHealthBar healthBar;
 
@@ -29,11 +29,13 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         healthBar = GetComponentInChildren<EnemyHealthBar>();
+ 
     }
 
     private void Update()
@@ -45,6 +47,10 @@ public class EnemyAi : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(2);
+        }
     }
 
     private void Patroling()
@@ -106,7 +112,7 @@ public class EnemyAi : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        healthBar.UpdateHealthBar(health, maxHealth);
+        healthBar.UpdateHealthBar(health);
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }

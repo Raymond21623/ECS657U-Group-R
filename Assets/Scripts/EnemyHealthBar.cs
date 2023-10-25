@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class EnemyHealthBar : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
+    [SerializeField] private Slider e_slider;
     [SerializeField] private Camera e_camera;
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
 
 
-    public void UpdateHealthBar(float currentValue, float maxValue)
+
+    public void UpdateHealthBar(float currentValue)
     {
-        slider.value = currentValue / maxValue;
+        e_slider.value = currentValue;
     }
 
 
