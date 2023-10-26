@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         targetZoom = cameraObject.localPosition.z;
     }
+    
 
     public void HandleMovement()
     {
@@ -95,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
             // Unlock the cursor when not in shift lock and not right-clicking
             Cursor.lockState = CursorLockMode.None;
         }
+
     }
 
 
