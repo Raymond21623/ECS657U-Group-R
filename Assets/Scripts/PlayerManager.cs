@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    
+
     private void Update()
     {
         inputManager.HandleAllInputs();

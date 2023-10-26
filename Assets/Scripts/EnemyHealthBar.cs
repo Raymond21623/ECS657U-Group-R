@@ -24,4 +24,13 @@ public class EnemyHealthBar : MonoBehaviour
         transform.rotation = e_camera.transform.rotation;
         transform.position = target.position + offset;
     }
+
+    void Awake()
+    {
+        if (e_camera == null)
+        {
+            e_camera = Camera.main;
+        }
+    }
+
 }

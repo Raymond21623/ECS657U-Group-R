@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private float[] zoomStages = { -3f, -6f, -9f, -12f, -18f, -24f, -30f };
     private int currentZoomStage = 2;
 
+    private bool isShiftLocked = false;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -61,7 +63,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleRotation()
     {
-        if (Input.GetMouseButton(1)) // Check if the right mouse button is held down
+        // Toggle shift lock when the shift key is pressed
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isShiftLocked = !isShiftLocked;
+        }
+
+        // If shift lock is active or right mouse button is held down, update camera rotation
+        if (isShiftLocked || Input.GetMouseButton(1))
         {
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
@@ -77,13 +86,13 @@ public class PlayerMovement : MonoBehaviour
 
             // Rotate the camera for X-axis (vertical) rotation
             cameraObject.localRotation = Quaternion.Euler(currentXRotation, 0.0f, 0.0f);
-            
-            // Lock the cursor to the center of the screen while right-clicking
+
+            // Lock the cursor to the center of the screen
             Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
-            // Unlock the cursor when not right-clicking
+            // Unlock the cursor when not in shift lock and not right-clicking
             Cursor.lockState = CursorLockMode.None;
         }
     }
