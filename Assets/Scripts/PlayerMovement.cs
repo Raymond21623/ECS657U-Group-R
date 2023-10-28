@@ -14,14 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 7;
     public float rotationSpeed = 15;
 
-    public float mouseSensitivity = 100.0f;
-    private float currentYRotation = 0.0f;
-    private float currentXRotation = 0.0f;
-
     private float[] zoomStages = { -3f, -6f, -9f, -12f, -18f, -24f, -30f };
     private int currentZoomStage = 2;
-
-    private bool isShiftLocked = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -29,12 +23,6 @@ public class PlayerMovement : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         playerRigidBody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
-        currentYRotation = transform.eulerAngles.y;
-        currentXRotation = cameraObject.localEulerAngles.x;
-
-        // Ensure they are applied
-        transform.localRotation = Quaternion.Euler(0.0f, currentYRotation, 0.0f);
-        cameraObject.localRotation = Quaternion.Euler(currentXRotation, 0.0f, 0.0f);
 
         // Lock the mouse cursor to the center of the screen when right-clicked
         Cursor.lockState = CursorLockMode.None;
@@ -64,39 +52,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleRotation()
     {
-        // Toggle shift lock when the shift key is pressed
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            isShiftLocked = !isShiftLocked;
-        }
+        Vector3 targetDirection = Vector3.zero;
 
-        // If shift lock is active or right mouse button is held down, update camera rotation
-        if (isShiftLocked || Input.GetMouseButton(1))
-        {
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
+        targetDirection = cameraObject.forward * inputManager.verticalInput;
+        targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
+        targetDirection.Normalize();
+        targetDirection.y = 0;
 
-            currentYRotation += mouseX * mouseSensitivity * Time.deltaTime;
-            currentXRotation -= mouseY * mouseSensitivity * Time.deltaTime;
+        if (targetDirection == Vector3.zero)
+            targetDirection = transform.forward;//Keep player facing the direction that they were last in (stops player from snapping back to straight forward)
 
-            // Clamp the X rotation to prevent flipping the camera upside down
-            currentXRotation = Mathf.Clamp(currentXRotation, -90.0f, 90.0f);
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            // Rotate the player's body for Y-axis (horizontal) rotation
-            transform.localRotation = Quaternion.Euler(0.0f, currentYRotation, 0.0f);
-
-            // Rotate the camera for X-axis (vertical) rotation
-            cameraObject.localRotation = Quaternion.Euler(currentXRotation, 0.0f, 0.0f);
-
-            // Lock the cursor to the center of the screen
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            // Unlock the cursor when not in shift lock and not right-clicking
-            Cursor.lockState = CursorLockMode.None;
-        }
-
+        transform.rotation = playerRotation;
     }
 
 

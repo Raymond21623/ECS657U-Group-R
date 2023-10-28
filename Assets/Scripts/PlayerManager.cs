@@ -31,6 +31,6 @@ public class PlayerManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        cameraManager.FollowCharacter();
+        cameraManager.HandleAllCameraMovement();
     }
 }
