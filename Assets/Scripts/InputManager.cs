@@ -72,7 +72,6 @@ public class InputManager : MonoBehaviour
         {
             jumpInput = false;
             playerMovement.HandleJumping();
-            Debug.Log("jumped");
         }
     }
 
