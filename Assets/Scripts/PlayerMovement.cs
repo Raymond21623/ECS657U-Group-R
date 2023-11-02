@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,19 +12,27 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody playerRigidBody;
 
+    CapsuleCollider capsuleCollider;
+
     public float inAirTimer;
     public float leapingVelocity;
     public float fallingVelocity;
     public LayerMask groundLayer;
-    public float rayCastHeightOffset = 0.1f;
-    public float maxDistance = 1;
+    public float groundDistance = 0.5f;
 
     public bool isSprinting;
     public bool isGrounded;
+    public bool isJumping;
+    private RaycastHit groundedHit = new RaycastHit();
 
     public float sprintingSpeed = 7;
     public float movementSpeed = 5;
     public float rotationSpeed = 15;
+
+    public float spd;
+
+    public float jumpHeight = 7f;
+    public float gravityIntensity = -15f;
 
     private float[] zoomStages = { -3f, -6f, -9f, -12f, -18f, -24f, -30f };
     private int currentZoomStage = 2;
@@ -33,16 +42,30 @@ public class PlayerMovement : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         playerRigidBody = GetComponent<Rigidbody>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
         cameraObject = Camera.main.transform;
 
         // Lock the mouse cursor to the center of the screen when right-clicked
         Cursor.lockState = CursorLockMode.None;
         targetZoom = cameraObject.localPosition.z;
     }
-    
+
+    public void HandleAllMovement()
+    {
+        HandleMovement();
+        HandleRotation();
+        HandleFalling();
+        HandleZoom(); // Handle the zoom functionality
+        isGrounded = IsGrounded();
+    }
 
     private void HandleMovement()
     {
+        if (!IsGrounded())
+        {
+            return;
+        }
+
         moveDirection = cameraObject.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -56,48 +79,40 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = moveDirection * movementSpeed;
         }
-
         Vector3 movementVelocity = moveDirection;
         playerRigidBody.velocity = movementVelocity;
+        
     }
+
+    bool IsGrounded()
+    {
+        float sphereCastRadius = capsuleCollider.radius * 0.9f;
+        float sphereCastTravelDistance = capsuleCollider.bounds.extents.y - sphereCastRadius + 0.05f;
+        isGrounded = Physics.SphereCast(playerRigidBody.position, sphereCastRadius, Vector3.down, out groundedHit, sphereCastTravelDistance);
+        if (isGrounded)
+        {
+            inAirTimer = 0;
+        }
+        return isGrounded;
+    }
+
 
     private void HandleFalling()
     {
-        RaycastHit hit;
-        Vector3 rayCastOrigin = transform.position;
-
-        //rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
-
-        if (!isGrounded)
+        if (!IsGrounded())
         {
             inAirTimer = inAirTimer + Time.deltaTime;
             playerRigidBody.AddForce(transform.forward * leapingVelocity);
             playerRigidBody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
         }
-
-        if(Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, maxDistance, groundLayer))
-        {
-            if(!isGrounded)
-            inAirTimer = 0;
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
     }
-
-    public void HandleAllMovement()
-    {
-        HandleMovement();
-        HandleRotation();
-        HandleFalling();
-        HandleZoom(); // Handle the zoom functionality
-    }
-
 
     private void HandleRotation()
     {
+        if (!IsGrounded())
+        {
+            return;
+        }
         Vector3 targetDirection = Vector3.zero;
 
         targetDirection = cameraObject.forward * inputManager.verticalInput;
@@ -114,6 +129,15 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = playerRotation;
     }
 
+    public void HandleJumping()
+    {
+        
+        if (IsGrounded())
+        {
+            //playerRigidBody.velocity = Vector3.up * jumpHeight;
+            playerRigidBody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+        }
+    }
 
 private bool isZooming = false;
 private float targetZoom;
