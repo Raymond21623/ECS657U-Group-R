@@ -15,15 +15,21 @@ public class PlayerMovement : MonoBehaviour
     public float leapingVelocity;
     public float fallingVelocity;
     public LayerMask groundLayer;
-    public float rayCastHeightOffset = 0.1f;
+    public float rayCastHeightOffset = 0.5f;
     public float maxDistance = 1;
 
     public bool isSprinting;
     public bool isGrounded;
+    public bool isJumping;
 
     public float sprintingSpeed = 7;
     public float movementSpeed = 5;
     public float rotationSpeed = 15;
+
+    public float spd;
+
+    public float jumpHeight = 7f;
+    public float gravityIntensity = -15;
 
     private float[] zoomStages = { -3f, -6f, -9f, -12f, -18f, -24f, -30f };
     private int currentZoomStage = 2;
@@ -39,10 +45,22 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         targetZoom = cameraObject.localPosition.z;
     }
-    
+
+    public void HandleAllMovement()
+    {
+        HandleMovement();
+        HandleRotation();
+        HandleFalling();
+        HandleZoom(); // Handle the zoom functionality
+    }
 
     private void HandleMovement()
     {
+        if (isJumping || !isGrounded)
+        {
+            return;
+        }
+
         moveDirection = cameraObject.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -56,48 +74,52 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = moveDirection * movementSpeed;
         }
-
-        Vector3 movementVelocity = moveDirection;
-        playerRigidBody.velocity = movementVelocity;
+        if (isGrounded && !isJumping)
+        {
+            Vector3 movementVelocity = moveDirection;
+            playerRigidBody.velocity = movementVelocity;
+        }
+        
     }
 
     private void HandleFalling()
     {
         RaycastHit hit;
         Vector3 rayCastOrigin = transform.position;
+        Debug.DrawRay(transform.position, Vector3.down, Color.red);
+        rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
 
-        //rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
-
-        if (!isGrounded)
+        if (!isGrounded && !isJumping)
         {
             inAirTimer = inAirTimer + Time.deltaTime;
             playerRigidBody.AddForce(transform.forward * leapingVelocity);
             playerRigidBody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+            spd = playerRigidBody.velocity.y;
         }
 
-        if(Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, maxDistance, groundLayer))
+        if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, maxDistance, groundLayer))
         {
-            if(!isGrounded)
             inAirTimer = 0;
             isGrounded = true;
         }
+        /*if (Physics.Raycast(rayCastOrigin, Vector3.down))
+        {
+            inAirTimer = 0;
+            isGrounded = true;
+        }*/
         else
         {
             isGrounded = false;
         }
+        
     }
-
-    public void HandleAllMovement()
-    {
-        HandleMovement();
-        HandleRotation();
-        HandleFalling();
-        HandleZoom(); // Handle the zoom functionality
-    }
-
 
     private void HandleRotation()
     {
+        if (isJumping || !isGrounded)
+        {
+            return;
+        }
         Vector3 targetDirection = Vector3.zero;
 
         targetDirection = cameraObject.forward * inputManager.verticalInput;
@@ -114,6 +136,18 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = playerRotation;
     }
 
+    public void HandleJumping()
+    {
+        
+        if (isGrounded)
+        {
+            /*float jumpingVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+            Vector3 playerVelocity = moveDirection;
+            playerVelocity.y = jumpingVelocity;
+            playerRigidBody.velocity = playerVelocity;*/
+            playerRigidBody.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
+        }
+    }
 
 private bool isZooming = false;
 private float targetZoom;

@@ -35,12 +35,11 @@ public class InputManager : MonoBehaviour
             playerInput.Player.Move.performed += i => movementInput = i.ReadValue<Vector2>();
             playerInput.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
 
-            playerInput.Player.Jump.performed += i => jumpInput = true;
-            playerInput.Player.Jump.canceled += i => jumpInput = false;
-
             playerInput.Player.Sprint.performed += i => sprintInput = true;
             playerInput.Player.Sprint.canceled += i => sprintInput = false;
 
+            playerInput.Player.Jump.performed += i => jumpInput = true;
+            playerInput.Player.Jump.canceled += i => jumpInput = false;
         }
 
         playerInput.Enable();
@@ -55,8 +54,9 @@ public class InputManager : MonoBehaviour
     {
         HandleMovementInput();
         HandleSprintingInput();
-
+        HandleJumpingInput();
     }
+
     private void HandleMovementInput()
     {
         verticalInput = movementInput.y;
@@ -66,17 +66,15 @@ public class InputManager : MonoBehaviour
         cameraInputY = cameraInput.y;
     }
 
-   /* private void HandleJumpingInput()
+    private void HandleJumpingInput()
     {
         if (jumpInput)
         {
-            playerMovement.isJumping = true;
+            jumpInput = false;
+            playerMovement.HandleJumping();
+            Debug.Log("jumped");
         }
-        else
-        {
-            playerMovement.isJumping = false;
-        }
-    }*/
+    }
 
     private void HandleSprintingInput()
     {
