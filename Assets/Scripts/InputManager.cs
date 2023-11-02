@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     PlayerInput playerInput;
+    PlayerMovement playerMovement;
 
     public Vector2 movementInput;
 
@@ -16,6 +17,15 @@ public class InputManager : MonoBehaviour
     public float verticalInput;
     public float horizontalInput;
 
+    public bool jumpInput;
+
+    public bool sprintInput;
+
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
+
     private void OnEnable()
     {
         if (playerInput == null)
@@ -24,6 +34,13 @@ public class InputManager : MonoBehaviour
 
             playerInput.Player.Move.performed += i => movementInput = i.ReadValue<Vector2>();
             playerInput.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
+
+            playerInput.Player.Jump.performed += i => jumpInput = true;
+            playerInput.Player.Jump.canceled += i => jumpInput = false;
+
+            playerInput.Player.Sprint.performed += i => sprintInput = true;
+            playerInput.Player.Sprint.canceled += i => sprintInput = false;
+
         }
 
         playerInput.Enable();
@@ -37,7 +54,7 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleMovementInput();
-
+        HandleSprintingInput();
 
     }
     private void HandleMovementInput()
@@ -48,4 +65,30 @@ public class InputManager : MonoBehaviour
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
     }
+
+   /* private void HandleJumpingInput()
+    {
+        if (jumpInput)
+        {
+            playerMovement.isJumping = true;
+        }
+        else
+        {
+            playerMovement.isJumping = false;
+        }
+    }*/
+
+    private void HandleSprintingInput()
+    {
+        if (sprintInput == true)
+        {
+            playerMovement.isSprinting = true;
+        }
+        else
+        {
+            playerMovement.isSprinting = false;
+        }
+    }
+
+
 }

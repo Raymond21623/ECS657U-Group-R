@@ -80,14 +80,14 @@ public class EnemyAi : MonoBehaviour
 
     private void ChasePlayer()
     {
-        Debug.Log("Chasing Player");
+        //Debug.Log("Chasing Player");
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
         //Make sure enemy doesn't move
-        Debug.Log("Attacking Player");
+        //Debug.Log("Attacking Player");
 
 
         transform.LookAt(player);

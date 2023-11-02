@@ -11,7 +11,18 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody playerRigidBody;
 
-    public float movementSpeed = 7;
+    public float inAirTimer;
+    public float leapingVelocity;
+    public float fallingVelocity;
+    public LayerMask groundLayer;
+    public float rayCastHeightOffset = 0.1f;
+    public float maxDistance = 1;
+
+    public bool isSprinting;
+    public bool isGrounded;
+
+    public float sprintingSpeed = 7;
+    public float movementSpeed = 5;
     public float rotationSpeed = 15;
 
     private float[] zoomStages = { -3f, -6f, -9f, -12f, -18f, -24f, -30f };
@@ -30,27 +41,62 @@ public class PlayerMovement : MonoBehaviour
     }
     
 
-    public void HandleMovement()
+    private void HandleMovement()
     {
         moveDirection = cameraObject.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
-        moveDirection = moveDirection * movementSpeed;
+
+        if (isSprinting)
+        {
+            moveDirection = moveDirection * sprintingSpeed;
+        }
+        else
+        {
+            moveDirection = moveDirection * movementSpeed;
+        }
 
         Vector3 movementVelocity = moveDirection;
         playerRigidBody.velocity = movementVelocity;
+    }
+
+    private void HandleFalling()
+    {
+        RaycastHit hit;
+        Vector3 rayCastOrigin = transform.position;
+
+        //rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
+
+        if (!isGrounded)
+        {
+            inAirTimer = inAirTimer + Time.deltaTime;
+            playerRigidBody.AddForce(transform.forward * leapingVelocity);
+            playerRigidBody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+        }
+
+        if(Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, maxDistance, groundLayer))
+        {
+            if(!isGrounded)
+            inAirTimer = 0;
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 
     public void HandleAllMovement()
     {
         HandleMovement();
         HandleRotation();
+        HandleFalling();
         HandleZoom(); // Handle the zoom functionality
     }
 
 
-    public void HandleRotation()
+    private void HandleRotation()
     {
         Vector3 targetDirection = Vector3.zero;
 
