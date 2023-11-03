@@ -2773,7 +2773,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 891a3b4fdb4d16e47b134676980d9425, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 4010e56edbb50a24787979cdba9b911a, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1129573985
 Transform:
@@ -3881,10 +3881,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a3eff775e67434dbae1254006bd13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 4
+  playerSpeed: 5
   crouchSpeed: 2
   sprintSpeed: 7
-  jumpHeight: 0.8
+  jumpHeight: 1.2
   gravityMultiplier: 2
   rotationSpeed: 3
   crouchColliderHeight: 1.35
