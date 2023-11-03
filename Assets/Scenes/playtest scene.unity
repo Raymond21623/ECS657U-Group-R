@@ -119,7 +119,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: b67a79cecbeea834b90f9e3bc73ef2fb, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &25597562
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +746,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4563557325612888227, guid: 29b475577bd142043a2ccad80f84455f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 883498491}
   m_SourcePrefab: {fileID: 100100000, guid: 29b475577bd142043a2ccad80f84455f, type: 3}
 --- !u!1 &257934763
 GameObject:
@@ -1139,6 +1142,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c6468ca50705cee45a4dfe30b372dc97, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6468ca50705cee45a4dfe30b372dc97, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1156334875509381579, guid: c6468ca50705cee45a4dfe30b372dc97, type: 3}
       propertyPath: m_Layer
@@ -2849,6 +2856,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 951ea01543b37794480716c94ce5ed66, type: 2}
     - target: {fileID: 6979118533080132827, guid: b91f2cacb0bef7f4bac8f61b0f00b4c6, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979118533080132827, guid: b91f2cacb0bef7f4bac8f61b0f00b4c6, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
@@ -3020,6 +3031,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b51802bc4a6ef4eb326bae8f29531f, type: 3}
+--- !u!1 &883498488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4563557325612888227, guid: 29b475577bd142043a2ccad80f84455f, type: 3}
+  m_PrefabInstance: {fileID: 252432588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &883498491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883498488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e26352b08e403438960034cb04e0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLength: 1.3
+  weaponDamage: 1
 --- !u!1 &889931443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,9 +3605,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  attackCD: 3
-  attackRange: 1
-  aggroRange: 6
+  attackCD: 2
+  attackRange: 2
+  aggroRange: 4
 --- !u!195 &1189195160
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4304,6 +4334,7 @@ GameObject:
   - component: {fileID: 1696022893}
   - component: {fileID: 1696022894}
   - component: {fileID: 1696022896}
+  - component: {fileID: 1696022897}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -4375,7 +4406,7 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4457,7 +4488,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.8
+  m_Height: 1.9
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -4479,6 +4510,19 @@ MonoBehaviour:
   weaponHolder: {fileID: 1665060146}
   weapon: {fileID: 3418011884731919454, guid: 29b475577bd142043a2ccad80f84455f, type: 3}
   weaponSheath: {fileID: 25597562}
+--- !u!114 &1696022897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696022885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ea71388a4e36a4493fbbccaf0adaf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1 &1765401870
 GameObject:
   m_ObjectHideFlags: 0

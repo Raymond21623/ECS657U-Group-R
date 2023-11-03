@@ -10,11 +10,13 @@ public class DamageDealer : MonoBehaviour
     [SerializeField] float weaponDamage;
     void Start()
     {
+        weaponDamage = 1f;
         canDealDamage = false;
         hasDealtDamage = new List<GameObject>();
+        Debug.Log("Weapon Damage is: " + weaponDamage);
     }
  
-    void Update()
+    void Update() 
     {
         if (canDealDamage)
         {
@@ -25,7 +27,6 @@ public class DamageDealer : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent(out Enemy enemy) && !hasDealtDamage.Contains(hit.transform.gameObject))
                 {   
-                    print("damage");
                     enemy.TakeDamage(weaponDamage);
                     // enemy.HitVFX(hit.point);
                     hasDealtDamage.Add(hit.transform.gameObject);

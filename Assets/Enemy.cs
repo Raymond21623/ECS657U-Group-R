@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float health = 3;
-    // [SerializeField] GameObject hitVFX;
-    // [SerializeField] GameObject ragdoll;
+    //[SerializeField] GameObject hitVFX;
+    //[SerializeField] GameObject ragdoll;
  
     [Header("Combat")]
     [SerializeField] float attackCD = 3f;
@@ -22,9 +22,9 @@ public class Enemy : MonoBehaviour
  
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        player = GameObject.FindWithTag("Player");
     }
  
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
-        animator.SetTrigger("damage");
+        // animator.SetTrigger("damage");
         // CameraShake.Instance.ShakeCamera(2f, 0.2f);
  
         if (health <= 0)
@@ -82,14 +82,14 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
-    // public void StartDealDamage()
-    // {
-    //     GetComponentInChildren<EnemyDamageDealer>().StartDealDamage();
-    // }
-    // public void EndDealDamage()
-    // {
-    //     GetComponentInChildren<EnemyDamageDealer>().EndDealDamage();
-    // }
+    public void StartDealDamage()
+    {
+        GetComponentInChildren<EnemyDamageDealer>().StartDealDamage();
+    }
+    public void EndDealDamage()
+    {
+        GetComponentInChildren<EnemyDamageDealer>().EndDealDamage();
+    }
  
     // public void HitVFX(Vector3 hitPosition)
     // {
