@@ -15,9 +15,9 @@ TagManager:
   - UI
   - WhatIsPlayer
   - WhatIsGround
-  - 
-  - 
-  - 
+  - Player
+  - 'Enemy '
+  - Ragdoll
   - 
   - 
   - 

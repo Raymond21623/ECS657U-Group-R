@@ -8,7 +8,7 @@ public class EnemyAi : MonoBehaviour
 
     public Transform player;
 
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask whatIsGround, Player;
 
     public float health;
     public float maxHealth = 100;
@@ -41,8 +41,8 @@ public class EnemyAi : MonoBehaviour
     private void Update()
     {
         //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, Player);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
