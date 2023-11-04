@@ -18,13 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public float leapingVelocity;
     public float fallingVelocity;
     public LayerMask groundLayer;
-    public float groundDistance = 0.5f;
 
     public bool isSprinting;
     public bool isGrounded;
     public bool isJumping;
-    private RaycastHit groundedHit = new RaycastHit();
-
+    
     public float sprintingSpeed = 7;
     public float movementSpeed = 5;
     public float rotationSpeed = 15;
@@ -48,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
         // Lock the mouse cursor to the center of the screen when right-clicked
         Cursor.lockState = CursorLockMode.None;
         targetZoom = cameraObject.localPosition.z;
+    }
+
+    private void Update()
+    {
+        Debug.Log(transform.position);
+        Debug.Log(playerRigidBody.position);
     }
 
     public void HandleAllMovement()
@@ -86,13 +90,30 @@ public class PlayerMovement : MonoBehaviour
 
     bool IsGrounded()
     {
-        float sphereCastRadius = capsuleCollider.radius * 0.9f;
-        float sphereCastTravelDistance = capsuleCollider.bounds.extents.y - sphereCastRadius + 0.05f;
-        isGrounded = Physics.SphereCast(playerRigidBody.position, sphereCastRadius, Vector3.down, out groundedHit, sphereCastTravelDistance);
+        RaycastHit groundedHit;
+        Vector3 targetPosition = transform.position;
+        Vector3 rayCastOrigin = transform.position;
+
+        //float sphereCastRadius = capsuleCollider.radius * 0.9f;
+        float sphereCastRadius = capsuleCollider.radius;
+
+        float sphereCastTravelDistance = capsuleCollider.bounds.extents.y - sphereCastRadius + 0.1f;
+        //float sphereCastTravelDistance = capsuleCollider.bounds.extents.y - sphereCastRadius + 0.05f;
+
+
+        isGrounded = Physics.SphereCast(rayCastOrigin, sphereCastRadius, Vector3.down, out groundedHit, sphereCastTravelDistance, groundLayer);
         if (isGrounded)
         {
+            Debug.DrawRay(playerRigidBody.position, Vector3.down, Color.red);
+            
+            Vector3 rayCastHitPoint = groundedHit.point;
+            targetPosition.y = rayCastHitPoint.y + 1f;
+            
             inAirTimer = 0;
-        }
+            isJumping = false;
+            transform.position = targetPosition;
+
+        } 
         return isGrounded;
     }
 
@@ -103,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
         {
             inAirTimer = inAirTimer + Time.deltaTime;
             playerRigidBody.AddForce(transform.forward * leapingVelocity);
-            playerRigidBody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+            playerRigidBody.AddForce(Vector3.down * fallingVelocity * inAirTimer);
         }
     }
 
@@ -136,10 +157,20 @@ public class PlayerMovement : MonoBehaviour
         {
             //playerRigidBody.velocity = Vector3.up * jumpHeight;
             playerRigidBody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            isJumping = true;
         }
     }
 
-private bool isZooming = false;
+    private void OnDrawGizmosSelected()
+    {
+        if (!Application.isPlaying) return;
+        Gizmos.color = Color.red;
+        Vector3 rayCastOrigin = transform.position;
+        Debug.DrawLine(rayCastOrigin, rayCastOrigin - transform.up * (capsuleCollider.bounds.extents.y - capsuleCollider.radius + 0.1f));
+        Gizmos.DrawWireSphere(rayCastOrigin - transform.up * (capsuleCollider.bounds.extents.y - capsuleCollider.radius + 0.1f), capsuleCollider.radius);
+    }
+
+    private bool isZooming = false;
 private float targetZoom;
 public float zoomSpeed = 5.0f;
 
