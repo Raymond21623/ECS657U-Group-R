@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -875,6 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1582467143}
+  Enemy: {fileID: 0}
   fullText: Defeat the enemy and reach the next doorway<br>LeftClick to attack the
     enemy
 --- !u!65 &351741411
@@ -1553,7 +1555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1582467143}
-  fullText: 
+  Enemy: {fileID: 1450479945}
+  fullText: Clear the enemy first!
 --- !u!65 &544060932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12108,6 +12111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1582467143}
+  Enemy: {fileID: 0}
   fullText: Go back to the start and make your way through the doorway
 --- !u!65 &1134420554
 BoxCollider:
@@ -12415,6 +12419,8 @@ MonoBehaviour:
   attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
+  damageAmount: 10
+  Enemy_attackRange: 5
 --- !u!195 &1194235433
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12557,6 +12563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1582467143}
+  Enemy: {fileID: 0}
   fullText: LeftShift to sprint
 --- !u!65 &1224404686
 BoxCollider:
@@ -12773,6 +12780,8 @@ MonoBehaviour:
   attackRange: 0
   playerInSightRange: 0
   playerInAttackRange: 0
+  damageAmount: 10
+  Enemy_attackRange: 5
 --- !u!4 &1450479947
 Transform:
   m_ObjectHideFlags: 0
@@ -12821,6 +12830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1582467143}
+  Enemy: {fileID: 0}
   fullText: WASD to move
 --- !u!65 &1454474247
 BoxCollider:
@@ -13238,6 +13248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1582467143}
+  Enemy: {fileID: 0}
   fullText: Space to jump
 --- !u!65 &1538192112
 BoxCollider:
@@ -14119,6 +14130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  armor: 0
   healthText: {fileID: 1755253217}
 --- !u!1 &1722116117
 GameObject:
@@ -15474,6 +15486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1582467143}
+  Enemy: {fileID: 0}
   fullText: Use the mouse to look around
 --- !u!65 &2134583748
 BoxCollider:
