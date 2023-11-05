@@ -8,6 +8,8 @@ public class CollisionDetection : MonoBehaviour
 {
     public GameObject textBox;
 
+    public GameObject Enemy;
+
     public string fullText;
 
     TypeWriterEffect typeWriterEffect;
@@ -40,9 +42,18 @@ public class CollisionDetection : MonoBehaviour
             }*/
             if (gameObject.tag == "EndTrigger")
             {
-                Debug.Log("collided");
-                UnityEditor.EditorApplication.isPlaying = false;
-                Application.Quit();
+                if (Enemy == null) // Check if the enemy GameObject has been destroyed
+                {
+                    Debug.Log("collided");
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    Application.Quit();
+                }
+                else
+                {
+                    textBox.SetActive(true);
+                    typeWriterEffect.fullText = fullText;
+                    typeWriterEffect.RevealText();
+                }
             } 
             else
             {

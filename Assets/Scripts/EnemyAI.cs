@@ -110,11 +110,6 @@ private void AttackPlayer()
     }
 }
 
-
-
-
-
-
     private void ResetAttack()
     {
         alreadyAttacked = false;

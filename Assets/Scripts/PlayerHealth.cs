@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // Respawn the player at the start position after a delay
-    Invoke("Respawn", 1f); // Respawn the player after 1 second
+    Invoke("Respawn", 0.2f); // Respawn the player after 1 second
 }
 
 private void Respawn()
