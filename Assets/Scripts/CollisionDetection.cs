@@ -8,6 +8,8 @@ public class CollisionDetection : MonoBehaviour
 {
     public GameObject textBox;
 
+    public string fullText;
+
     TypeWriterEffect typeWriterEffect;
 
     TextMeshProUGUI text;
@@ -30,9 +32,24 @@ public class CollisionDetection : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Collided with player");
-            textBox.SetActive(true);
-            typeWriterEffect.RevealText();
+            /*if(CompareTag("QuestTrigger"))
+            {
+                textBox.SetActive(true);
+                typeWriterEffect.fullText = fullText;
+                typeWriterEffect.RevealText();
+            }*/
+            if (gameObject.tag == "EndTrigger")
+            {
+                Debug.Log("collided");
+                UnityEditor.EditorApplication.isPlaying = false;
+                Application.Quit();
+            } 
+            else
+            {
+                textBox.SetActive(true);
+                typeWriterEffect.fullText = fullText;
+                typeWriterEffect.RevealText();
+            }
         }
     }
 

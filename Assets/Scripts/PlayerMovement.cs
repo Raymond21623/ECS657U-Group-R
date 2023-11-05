@@ -50,8 +50,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(transform.position);
-        Debug.Log(playerRigidBody.position);
+        //Debug.Log(transform.position);
+        //Debug.Log(playerRigidBody.position);
     }
 
     public void HandleAllMovement()
