@@ -212,8 +212,7 @@ public void HandleZoom()
 }
 
 
-
-private IEnumerator SmoothZoom(float targetZoomValue)
+    private IEnumerator SmoothZoom(float targetZoomValue)
 {
     isZooming = true;
 

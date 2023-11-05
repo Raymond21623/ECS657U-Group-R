@@ -43,6 +43,8 @@ public class EnemyAi : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
+
+        PlayerDamage();
     }
 
     private void Patroling()
@@ -121,6 +123,22 @@ private void AttackPlayer()
         healthBar.UpdateHealthBar(health);
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+    }
+
+    public int damageAmount = 10;
+    public float Enemy_attackRange = 5.0f;
+
+
+    public void PlayerDamage()
+    {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+
+        if (Input.GetMouseButtonDown(0) && distance <= Enemy_attackRange)
+        {
+            Debug.Log("Pressed Left Button");
+            TakeDamage(damageAmount);
+
+        }
     }
 
     private void DestroyEnemy()
