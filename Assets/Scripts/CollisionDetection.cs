@@ -45,7 +45,7 @@ public class CollisionDetection : MonoBehaviour
                 if (Enemy == null) // Check if the enemy GameObject has been destroyed
                 {
                     Debug.Log("collided");
-                    UnityEditor.EditorApplication.isPlaying = false;
+                    //UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
                 else
