@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -43,10 +44,21 @@ public class PlayerMovement : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         cameraObject = Camera.main.transform;
 
-        // Lock the mouse cursor to the center of the screen when right-clicked
-        Cursor.lockState = CursorLockMode.Locked;
+        // Check if the current scene is the playtest scene (build index 0)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            // Lock the mouse cursor to the center of the screen for playtesting
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            // Unlock the cursor for the main scene or any other scene
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         targetZoom = cameraObject.localPosition.z;
     }
+
 
     private void Update()
     {
