@@ -1,13 +1,11 @@
-
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyAi : MonoBehaviour
 {
     public NavMeshAgent agent;
-
     public Transform player;
-
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
@@ -15,42 +13,36 @@ public class EnemyAi : MonoBehaviour
 
     EnemyHealthBar healthBar;
 
-    //Patroling
+    // Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
-    //Attacking
+    // Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
 
-    //States
+    // States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
-
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         healthBar = GetComponentInChildren<EnemyHealthBar>();
- 
     }
 
     private void Update()
     {
-        //Check for sight and attack range
+        // Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(2);
-        }
     }
 
     private void Patroling()
@@ -62,13 +54,14 @@ public class EnemyAi : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        //Walkpoint reached
+        // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
+
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
+        // Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -80,30 +73,48 @@ public class EnemyAi : MonoBehaviour
 
     private void ChasePlayer()
     {
-        //Debug.Log("Chasing Player");
         agent.SetDestination(player.position);
     }
 
-    private void AttackPlayer()
+private void AttackPlayer()
+{
+    transform.LookAt(player);
+
+    if (!alreadyAttacked)
     {
-        //Make sure enemy doesn't move
-        //Debug.Log("Attacking Player");
+        // Instantiate the projectile and get its Rigidbody
+        GameObject projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
+        Rigidbody rb = projectileInstance.GetComponent<Rigidbody>();
 
-
-        transform.LookAt(player);
-
-        if (!alreadyAttacked)
+        // Ignore collision between the projectile and the enemy collider
+        Collider enemyCollider = GetComponent<Collider>();
+        Collider projectileCollider = projectileInstance.GetComponent<Collider>();
+        if (enemyCollider != null && projectileCollider != null)
         {
-            ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            ///End of attack code
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            Physics.IgnoreCollision(enemyCollider, projectileCollider);
         }
+
+        // Calculate the direction from the enemy to the player
+        // Aim slightly downwards by subtracting a small vector pointing down from the direction
+        Vector3 directionToPlayer = (player.position - transform.position).normalized - new Vector3(0, 0.1f, 0);
+
+        // Apply forces to the projectile
+        rb.AddForce(directionToPlayer * 32f, ForceMode.Impulse);
+        rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+
+        // Destroy the projectile after some time to prevent cluttering the scene
+        Destroy(projectileInstance, 5f); // Adjust the time as needed
+
+        alreadyAttacked = true;
+        Invoke(nameof(ResetAttack), timeBetweenAttacks);
     }
+}
+
+
+
+
+
+
     private void ResetAttack()
     {
         alreadyAttacked = false;
@@ -116,16 +127,9 @@ public class EnemyAi : MonoBehaviour
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
+
     private void DestroyEnemy()
     {
         Destroy(gameObject);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }

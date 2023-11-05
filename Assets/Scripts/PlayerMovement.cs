@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         cameraObject = Camera.main.transform;
 
         // Lock the mouse cursor to the center of the screen when right-clicked
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         targetZoom = cameraObject.localPosition.z;
     }
 
