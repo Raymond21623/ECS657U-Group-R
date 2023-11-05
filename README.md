@@ -2,9 +2,13 @@
 
 How to play: 
 WASD to move
+
 LeftClick to attack enemy
+
 Mouse pointer to move camera
+
 Space to jump
+
 LeftShift to sprint
 
 UI:
