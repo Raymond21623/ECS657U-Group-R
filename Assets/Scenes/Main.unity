@@ -6382,8 +6382,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67bd1d27272235641b18cbe3f723e81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inAirTimer: 0
+  leapingVelocity: 0
+  fallingVelocity: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isSprinting: 0
+  isGrounded: 0
+  isJumping: 0
+  sprintingSpeed: 7
   movementSpeed: 7
   rotationSpeed: 15
+  spd: 0
+  jumpHeight: 7
+  gravityIntensity: -15
   zoomSpeed: 5
 --- !u!114 &1811424053
 MonoBehaviour:
@@ -6415,6 +6428,8 @@ MonoBehaviour:
   cameraInputY: 0
   verticalInput: 0
   horizontalInput: 0
+  jumpInput: 0
+  sprintInput: 0
 --- !u!114 &1811424055
 MonoBehaviour:
   m_ObjectHideFlags: 0

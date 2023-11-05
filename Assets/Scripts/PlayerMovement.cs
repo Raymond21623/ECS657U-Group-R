@@ -107,13 +107,17 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(playerRigidBody.position, Vector3.down, Color.red);
             
             Vector3 rayCastHitPoint = groundedHit.point;
-            targetPosition.y = rayCastHitPoint.y + 1f;
-            
+            targetPosition.y = rayCastHitPoint.y + 0.9f;
+            //isGrounded = true;
             inAirTimer = 0;
             isJumping = false;
+            
             transform.position = targetPosition;
-
-        } 
+        }
+        else
+        {
+            //isGrounded = false;
+        }
         return isGrounded;
     }
 
