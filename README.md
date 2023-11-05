@@ -1,6 +1,7 @@
 # ECS657U-Group-R Concepts
 
 How to play: 
+
 WASD to move
 
 LeftClick to attack enemy
@@ -36,6 +37,9 @@ First Build
 https://raymond21623.github.io/ECS657U-Group-R-Builds/v0.0/index.html
 
 Second Build
+https://raymond21623.github.io/ECS657U-Group-R-Builds/v0.1/index.html
+
+Third Build
 https://raymond21623.github.io/ECS657U-Group-R-Builds/v0.2/index.html
 
 
