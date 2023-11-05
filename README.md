@@ -1,5 +1,12 @@
 # ECS657U-Group-R Concepts
 
+How to play: 
+WASD to move
+LeftClick to attack enemy
+Mouse pointer to move camera
+Space to jump
+LeftShift to sprint
+
 UI:
 Main menu
 Text to tell the narrative 
@@ -23,5 +30,8 @@ The Lost King
 
 First Build
 https://raymond21623.github.io/ECS657U-Group-R-Builds/v0.0/index.html
+
+Second Build
+https://raymond21623.github.io/ECS657U-Group-R-Builds/v0.2/index.html
 
 
