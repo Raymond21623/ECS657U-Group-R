@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyProjectile
   - healthCanvas
+  - EndTrigger
   layers:
   - Default
   - TransparentFX
