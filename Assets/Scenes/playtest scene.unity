@@ -10997,7 +10997,8 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: c7be109cb3145ad44b3c974794f70ed6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13860,6 +13861,7 @@ GameObject:
   - component: {fileID: 1696022892}
   - component: {fileID: 1696022893}
   - component: {fileID: 1696022894}
+  - component: {fileID: 1696022895}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -14070,6 +14072,28 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   animator: {fileID: 0}
   playerVelocity: {x: 0, y: 0, z: 0}
+--- !u!95 &1696022895
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696022885}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: c7be109cb3145ad44b3c974794f70ed6, type: 3}
+  m_Controller: {fileID: 9100000, guid: cedbff7320674dc4ea9e29a8445342d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1722116117
 GameObject:
   m_ObjectHideFlags: 0
