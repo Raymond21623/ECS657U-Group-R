@@ -73,3 +73,5 @@ crashlytics-build.properties
 Assets/Scenes/Raymond.unity
 Assets/Scenes/Raymond.unity.meta
 .DS_Store
+*.meta
+*.meta
