@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6ad2e1845f987de45b8b6a4254d23bcf
+guid: c7a13a89fe524f441ad1084a8c1d3037
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,10 +31,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: player_land
+      name: Player_land
       takeName: mixamo.com
       internalID: -203655887218126122
-      firstFrame: 40
+      firstFrame: 41
       lastFrame: 65
       wrapMode: 0
       orientationOffsetY: 0
@@ -526,13 +526,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: jump(Clone)
+    - name: land(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: jump(Clone)
+      parentName: land(Clone)
       position: {x: -0.002623304, y: 0.98999065, z: -0.001259903}
       rotation: {x: -0.03130586, y: 0.04653557, z: 0.029061584, w: 0.99800295}
       scale: {x: 1, y: 1, z: 1}
