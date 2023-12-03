@@ -11602,7 +11602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 0a10cd3a59cff5b408fdd4b922a07858, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 45c2a9d3545c3dd4180c585d878dcbe3, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -11619,7 +11619,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1554715501}
 --- !u!1 &889931443
 GameObject:
   m_ObjectHideFlags: 0
@@ -14165,6 +14165,7 @@ GameObject:
   - component: {fileID: 1696022887}
   - component: {fileID: 1696022892}
   - component: {fileID: 1696022893}
+  - component: {fileID: 1696022894}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -14345,6 +14346,35 @@ MonoBehaviour:
   health: 100
   armor: 0
   healthText: {fileID: 1755253217}
+--- !u!114 &1696022894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696022885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ca32cf5ff154f41b47dd7ff3ccccf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 5
+  crouchSpeed: 2
+  sprintSpeed: 7
+  jumpHeight: 0.8
+  gravityMultiplier: 2
+  rotationSpeed: 5
+  crouchColliderHeight: 1.35
+  speedDampTime: 0.1
+  velocityDampTime: 0.9
+  rotationDampTime: 0.2
+  airControl: 0.5
+  gravityValue: -9.81
+  normalColliderHeight: 0
+  controller: {fileID: 0}
+  cameraTransform: {fileID: 0}
+  animator: {fileID: 0}
+  playerVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &1722116117
 GameObject:
   m_ObjectHideFlags: 0

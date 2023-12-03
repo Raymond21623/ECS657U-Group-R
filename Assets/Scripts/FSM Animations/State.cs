@@ -17,16 +17,20 @@ public class State
     public InputAction sprintAction;
 
     public State(Character _character, StateMachine _stateMachine)
-	{
+    {
         character = _character;
         stateMachine = _stateMachine;
 
-        moveAction = character.playerInput.actions["Player/Move"];
-        lookAction = character.playerInput.actions["Player/Look"];
-        jumpAction = character.playerInput.actions["Player/Jump"];
-        crouchAction = character.playerInput.actions["Player/Crouch"];
-        sprintAction = character.playerInput.actions["Player/Sprint"];
+        var playerControls = new PlayerControls();
+
+        moveAction = playerControls.Player.Move;
+        lookAction = playerControls.Player.Look;
+        jumpAction = playerControls.Player.Jump;
+        crouchAction = playerControls.Player.Crouch;
+        sprintAction = playerControls.Player.Sprint;
+        playerControls.Player.Enable();
     }
+
 
     public virtual void Enter()
     {

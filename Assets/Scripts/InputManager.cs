@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    PlayerInput playerInput;
+    PlayerControls playerControls;
     PlayerMovement playerMovement;
 
     public Vector2 movementInput;
@@ -28,26 +28,26 @@ public class InputManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (playerInput == null)
+        if (playerControls == null)
         {
-            playerInput = new PlayerInput();
+            playerControls = new PlayerControls();
 
-            playerInput.Player.Move.performed += i => movementInput = i.ReadValue<Vector2>();
-            playerInput.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
+            playerControls.Player.Move.performed += i => movementInput = i.ReadValue<Vector2>();
+            playerControls.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
 
-            playerInput.Player.Sprint.performed += i => sprintInput = true;
-            playerInput.Player.Sprint.canceled += i => sprintInput = false;
+            playerControls.Player.Sprint.performed += i => sprintInput = true;
+            playerControls.Player.Sprint.canceled += i => sprintInput = false;
 
-            playerInput.Player.Jump.performed += i => jumpInput = true;
-            playerInput.Player.Jump.canceled += i => jumpInput = false;
+            playerControls.Player.Jump.performed += i => jumpInput = true;
+            playerControls.Player.Jump.canceled += i => jumpInput = false;
         }
 
-        playerInput.Enable();
+        playerControls.Enable();
     }
 
     private void OnDisable()
     {
-        playerInput.Disable();
+        playerControls.Disable();
     }
 
     public void HandleAllInputs()
