@@ -13921,20 +13921,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inAirTimer: 0
-  leapingVelocity: 3
-  fallingVelocity: 33
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 129
+  gravityIntensity: -15
   isSprinting: 0
   isGrounded: 0
   isJumping: 0
-  sprintingSpeed: 7
-  movementSpeed: 5
+  sprintingSpeed: 2
+  movementSpeed: 1
   rotationSpeed: 15
-  spd: 0
-  jumpHeight: 7
-  gravityIntensity: -15
+  jumpHeight: 1.6
   zoomSpeed: 5
 --- !u!114 &1696022889
 MonoBehaviour:
@@ -14055,9 +14049,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ca32cf5ff154f41b47dd7ff3ccccf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  playerSpeed: 4
   crouchSpeed: 2
-  sprintSpeed: 7
+  sprintSpeed: 6
   jumpHeight: 0.8
   gravityMultiplier: 2
   rotationSpeed: 5
@@ -14073,6 +14067,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   animator: {fileID: 0}
   playerVelocity: {x: 0, y: 0, z: 0}
+  isCrouched: 0
 --- !u!95 &1696022895
 Animator:
   serializedVersion: 7

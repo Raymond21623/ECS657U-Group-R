@@ -16,11 +16,11 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
 
-    public float sprintingSpeed = 7.0f;
-    public float movementSpeed = 5.0f;
+    public float sprintingSpeed = 2.0f;
+    public float movementSpeed = 1.0f;
     public float rotationSpeed = 5f;
 
-    public float jumpHeight = 0.8f;
+    public float jumpHeight = 1.6f;
 
     private float[] zoomStages = { -3f, -6f, -9f, -12f, -18f, -24f, -30f };
     private int currentZoomStage = 2;
