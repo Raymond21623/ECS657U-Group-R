@@ -20,6 +20,7 @@ public class CrouchingState : State
     public override void Enter()
     {
         base.Enter();
+        character.isCrouched = true;
 
         character.animator.SetTrigger("crouch");  
         belowCeiling = false;
@@ -38,6 +39,7 @@ public class CrouchingState : State
     public override void Exit()
     {
         base.Exit();
+        character.isCrouched = false;
         character.controller.height = character.normalColliderHeight;
         character.controller.center = new Vector3(0f, character.normalColliderHeight / 2f, 0f);
         gravityVelocity.y = 0f;
@@ -48,9 +50,9 @@ public class CrouchingState : State
     public override void HandleInput()
     {
         base.HandleInput();
-		if (crouchAction.triggered && !belowCeiling)
+		if (crouchAction.triggered)
 		{
-            crouchHeld = true;
+            crouchHeld = !crouchHeld;   
         }
         input = moveAction.ReadValue<Vector2>();
         velocity = new Vector3(input.x, 0, input.y);
@@ -59,16 +61,18 @@ public class CrouchingState : State
         velocity.y = 0f;
     }
 
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-        character.animator.SetFloat("speed", input.magnitude, character.speedDampTime, Time.deltaTime);
+public override void LogicUpdate()
+{
+    base.LogicUpdate();
+    character.animator.SetFloat("speed", input.magnitude, character.speedDampTime, Time.deltaTime);
 
-        if (crouchHeld)
-		{
-            stateMachine.ChangeState(character.standing);
-        }
+    // Toggle the crouch state if the crouch button is pressed
+    if (crouchHeld && character.isCrouched)
+    {
+        stateMachine.ChangeState(character.standing);
     }
+}
+
 
     public override void PhysicsUpdate()
     {

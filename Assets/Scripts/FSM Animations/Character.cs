@@ -46,6 +46,10 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public Vector3 playerVelocity;
 
+    [HideInInspector]
+    public bool isCrouched = false;
+
+
 
     // Start is called before the first frame update
     private void Start()
