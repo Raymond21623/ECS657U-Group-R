@@ -6,7 +6,7 @@ public class EnemyAi : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask Ground, Player;
 
     public float health;
     public float maxHealth = 100;
@@ -37,8 +37,8 @@ public class EnemyAi : MonoBehaviour
     private void Update()
     {
         // Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, Player);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, Player);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
@@ -69,7 +69,7 @@ public class EnemyAi : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, Ground))
             walkPointSet = true;
     }
 
@@ -84,11 +84,9 @@ private void AttackPlayer()
 
     if (!alreadyAttacked)
     {
-        // Instantiate the projectile and get its Rigidbody
         GameObject projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
         Rigidbody rb = projectileInstance.GetComponent<Rigidbody>();
 
-        // Ignore collision between the projectile and the enemy collider
         Collider enemyCollider = GetComponent<Collider>();
         Collider projectileCollider = projectileInstance.GetComponent<Collider>();
         if (enemyCollider != null && projectileCollider != null)
@@ -96,16 +94,13 @@ private void AttackPlayer()
             Physics.IgnoreCollision(enemyCollider, projectileCollider);
         }
 
-        // Calculate the direction from the enemy to the player
-        // Aim slightly downwards by subtracting a small vector pointing down from the direction
         Vector3 directionToPlayer = (player.position - transform.position).normalized - new Vector3(0, 0.1f, 0);
 
-        // Apply forces to the projectile
+
         rb.AddForce(directionToPlayer * 32f, ForceMode.Impulse);
         rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
-        // Destroy the projectile after some time to prevent cluttering the scene
-        Destroy(projectileInstance, 5f); // Adjust the time as needed
+        Destroy(projectileInstance, 5f); 
 
         alreadyAttacked = true;
         Invoke(nameof(ResetAttack), timeBetweenAttacks);
