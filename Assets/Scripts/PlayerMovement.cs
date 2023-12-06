@@ -1,164 +1,107 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     InputManager inputManager;
-
     Vector3 moveDirection;
     Transform cameraObject;
-
-    Rigidbody playerRigidBody;
-
-    CapsuleCollider capsuleCollider;
+    CharacterController characterController;
 
     public float inAirTimer;
-    public float leapingVelocity;
-    public float fallingVelocity;
-    public LayerMask groundLayer;
+    public float gravityIntensity = -9.81f;
 
     public bool isSprinting;
     public bool isGrounded;
     public bool isJumping;
-    
-    public float sprintingSpeed = 7;
-    public float movementSpeed = 5;
-    public float rotationSpeed = 15;
 
-    public float spd;
+    public float sprintingSpeed = 2.0f;
+    public float movementSpeed = 1.0f;
+    public float rotationSpeed = 5f;
 
-    public float jumpHeight = 7f;
-    public float gravityIntensity = -15f;
+    public float jumpHeight = 1.6f;
 
     private float[] zoomStages = { -3f, -6f, -9f, -12f, -18f, -24f, -30f };
     private int currentZoomStage = 2;
 
-    // Start is called before the first frame update
+    private bool isZooming = false;
+    private float targetZoom;
+    public float zoomSpeed = 5.0f;
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
-        playerRigidBody = GetComponent<Rigidbody>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
+        characterController = GetComponent<CharacterController>();
         cameraObject = Camera.main.transform;
 
-        // Check if the current scene is the playtest scene (build index 0)
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            // Lock the mouse cursor to the center of the screen for playtesting
             Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
-            // Unlock the cursor for the main scene or any other scene
             Cursor.lockState = CursorLockMode.None;
         }
-
-        targetZoom = cameraObject.localPosition.z;
     }
-
 
     private void Update()
     {
-        //Debug.Log(transform.position);
-        //Debug.Log(playerRigidBody.position);
+        HandleAllMovement();
     }
 
     public void HandleAllMovement()
     {
+        isGrounded = characterController.isGrounded;
+        if (isGrounded && isJumping)
+        {
+            isJumping = false;
+            inAirTimer = 0;
+        }
+        else if (!isGrounded)
+        {
+            inAirTimer += Time.deltaTime;
+        }
+
         HandleMovement();
         HandleRotation();
-        HandleFalling();
-        HandleZoom(); // Handle the zoom functionality
-        isGrounded = IsGrounded();
+        HandleJumping();
+        HandleZoom();
     }
 
     private void HandleMovement()
     {
-        if (!IsGrounded())
-        {
-            return;
-        }
-
         moveDirection = cameraObject.forward * inputManager.verticalInput;
-        moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
+        moveDirection += cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
 
         if (isSprinting)
         {
-            moveDirection = moveDirection * sprintingSpeed;
+            moveDirection *= sprintingSpeed;
         }
         else
         {
-            moveDirection = moveDirection * movementSpeed;
+            moveDirection *= movementSpeed;
         }
-        Vector3 movementVelocity = moveDirection;
-        playerRigidBody.velocity = movementVelocity;
-        
-    }
 
-    bool IsGrounded()
-    {
-        RaycastHit groundedHit;
-        Vector3 targetPosition = transform.position;
-        Vector3 rayCastOrigin = transform.position;
-
-        //float sphereCastRadius = capsuleCollider.radius * 0.9f;
-        float sphereCastRadius = capsuleCollider.radius;
-
-        float sphereCastTravelDistance = capsuleCollider.bounds.extents.y - sphereCastRadius + 0.1f;
-        //float sphereCastTravelDistance = capsuleCollider.bounds.extents.y - sphereCastRadius + 0.05f;
-
-
-        isGrounded = Physics.SphereCast(rayCastOrigin, sphereCastRadius, Vector3.down, out groundedHit, sphereCastTravelDistance, groundLayer);
-        if (isGrounded)
+        if (!isGrounded)
         {
-            Debug.DrawRay(playerRigidBody.position, Vector3.down, Color.red);
-            
-            Vector3 rayCastHitPoint = groundedHit.point;
-            targetPosition.y = rayCastHitPoint.y + 0.9f;
-            //isGrounded = true;
-            inAirTimer = 0;
-            isJumping = false;
-            
-            transform.position = targetPosition;
+            moveDirection.y += gravityIntensity * inAirTimer;
         }
-        else
-        {
-            //isGrounded = false;
-        }
-        return isGrounded;
-    }
 
-
-    private void HandleFalling()
-    {
-        if (!IsGrounded())
-        {
-            inAirTimer = inAirTimer + Time.deltaTime;
-            playerRigidBody.AddForce(transform.forward * leapingVelocity);
-            playerRigidBody.AddForce(Vector3.down * fallingVelocity * inAirTimer);
-        }
+        characterController.Move(moveDirection * Time.deltaTime);
     }
 
     private void HandleRotation()
     {
-        if (!IsGrounded())
-        {
-            return;
-        }
-        Vector3 targetDirection = Vector3.zero;
-
-        targetDirection = cameraObject.forward * inputManager.verticalInput;
-        targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
+        Vector3 targetDirection = cameraObject.forward * inputManager.verticalInput;
+        targetDirection += cameraObject.right * inputManager.horizontalInput;
         targetDirection.Normalize();
         targetDirection.y = 0;
 
         if (targetDirection == Vector3.zero)
-            targetDirection = transform.forward;//Keep player facing the direction that they were last in (stops player from snapping back to straight forward)
+            targetDirection = transform.forward;
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -168,11 +111,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleJumping()
     {
-        
-        if (IsGrounded())
+        if (isGrounded)
         {
-            //playerRigidBody.velocity = Vector3.up * jumpHeight;
-            playerRigidBody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            moveDirection.y = jumpHeight;
             isJumping = true;
         }
     }
@@ -182,61 +123,51 @@ public class PlayerMovement : MonoBehaviour
         if (!Application.isPlaying) return;
         Gizmos.color = Color.red;
         Vector3 rayCastOrigin = transform.position;
-        Debug.DrawLine(rayCastOrigin, rayCastOrigin - transform.up * (capsuleCollider.bounds.extents.y - capsuleCollider.radius + 0.1f));
-        Gizmos.DrawWireSphere(rayCastOrigin - transform.up * (capsuleCollider.bounds.extents.y - capsuleCollider.radius + 0.1f), capsuleCollider.radius);
+        // Adjust these values according to the CharacterController's properties
+        float characterHeight = characterController.height;
+        float characterRadius = characterController.radius;
+        Debug.DrawLine(rayCastOrigin, rayCastOrigin - transform.up * (characterHeight / 2 - characterRadius + 0.1f));
+        Gizmos.DrawWireSphere(rayCastOrigin - transform.up * (characterHeight / 2 - characterRadius + 0.1f), characterRadius);
     }
 
-    private bool isZooming = false;
-private float targetZoom;
-public float zoomSpeed = 5.0f;
-
-public void HandleZoom()
-{
-    float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-
-    if (scrollInput != 0f && !isZooming)
+    public void HandleZoom()
     {
-        if (scrollInput > 0f && currentZoomStage > 0) // Scrolling up
-        {
-            currentZoomStage--;
-        }
-        else if (scrollInput < 0f && currentZoomStage < zoomStages.Length - 1) // Scrolling down
-        {
-            currentZoomStage++;
-        }
-        
-        float desiredZoom = zoomStages[currentZoomStage];
-        StopAllCoroutines();  // Stop any existing zoom coroutines
-        StartCoroutine(SmoothZoom(desiredZoom));
-    }
-}
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
+        if (scrollInput != 0f && !isZooming)
+        {
+            if (scrollInput > 0f && currentZoomStage > 0) // Scrolling up
+            {
+                currentZoomStage--;
+            }
+            else if (scrollInput < 0f && currentZoomStage < zoomStages.Length - 1) // Scrolling down
+            {
+                currentZoomStage++;
+            }
+
+            float desiredZoom = zoomStages[currentZoomStage];
+            StopAllCoroutines();  // Stop any existing zoom coroutines
+            StartCoroutine(SmoothZoom(desiredZoom));
+        }
+    }
 
     private IEnumerator SmoothZoom(float targetZoomValue)
-{
-    isZooming = true;
-
-    float startZoom = cameraObject.localPosition.z;
-    float progress = 0f;
-
-    while (progress < 1f)
     {
-        progress += Time.deltaTime * zoomSpeed;
+        isZooming = true;
 
-        float currentZoom = Mathf.Lerp(startZoom, targetZoomValue, progress);
-        cameraObject.localPosition = new Vector3(cameraObject.localPosition.x, cameraObject.localPosition.y, currentZoom);
+        float startZoom = cameraObject.localPosition.z;
+        float progress = 0f;
 
-        yield return null; // Wait for the next frame before continuing the loop
+        while (progress < 1f)
+        {
+            progress += Time.deltaTime * zoomSpeed;
+
+            float currentZoom = Mathf.Lerp(startZoom, targetZoomValue, progress);
+            cameraObject.localPosition = new Vector3(cameraObject.localPosition.x, cameraObject.localPosition.y, currentZoom);
+
+            yield return null; // Wait for the next frame before continuing the loop
+        }
+
+        isZooming = false;
     }
-
-    isZooming = false;
-}
-
-
-
-
-
-
-
-
 }
