@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float health = 3;
     [SerializeField] GameObject hitVFX;
-    // [SerializeField] GameObject ragdoll;
+     [SerializeField] GameObject ragdoll;
  
     [Header("Combat")]
     [SerializeField] float attackCD = 3f;
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
  
     void Die()
     {
-        // Instantiate(ragdoll, transform.position,transform.rotation);
+        Instantiate(ragdoll, transform.position,transform.rotation);
         Destroy(this.gameObject);
     }
  
@@ -75,7 +75,6 @@ public class Enemy : MonoBehaviour
     {
         health -= damageAmount;
         animator.SetTrigger("damage");
-        // CameraShake.Instance.ShakeCamera(2f, 0.2f);
  
         if (health <= 0)
         {
@@ -91,11 +90,11 @@ public class Enemy : MonoBehaviour
          GetComponentInChildren<EnemyDamageDealer>().EndDealDamage();
     }
  
-    // public void HitVFX(Vector3 hitPosition)
-    // {
-    //     GameObject hit = Instantiate(hitVFX, hitPosition, Quaternion.identity);
-    //     Destroy(hit, 3f);
-    // }
+    public void HitVFX(Vector3 hitPosition)
+    {
+        GameObject hit = Instantiate(hitVFX, hitPosition, Quaternion.identity);
+        Destroy(hit, 3f);
+    }
  
     private void OnDrawGizmos()
     {
