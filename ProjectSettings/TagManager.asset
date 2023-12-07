@@ -14,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - WhatIsPlayer
-  - WhatIsGround
   - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Enemy
+  - Ragdoll
   - 
   - 
   - 
