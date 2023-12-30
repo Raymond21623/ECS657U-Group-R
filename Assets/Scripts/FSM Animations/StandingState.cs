@@ -85,8 +85,10 @@ public class StandingState: State
             stateMachine.ChangeState(character.crouching);
         }
         if (drawWeapon)
+        {
             stateMachine.ChangeState(character.combatting);
             character.animator.SetTrigger("drawWeapon");
+        }
         
     }
 
