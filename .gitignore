@@ -68,10 +68,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
+#/[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Scenes/Raymond.unity
-Assets/Scenes/Raymond.unity.meta
+#Assets/Scenes/Raymond.unity.meta
 .DS_Store
-*.meta
-*.meta
+#*.meta
+#*.meta
