@@ -32,7 +32,10 @@ public class VillagerSystem : MonoBehaviour
 {
     public GameObject textBox;
     public TextMeshProUGUI textComponent;
-    public string[] dialogueLines; // Make this public so you can set it in the editor
+    public string[] dialogueLines; // Dialogue lines set in the editor
+
+    public Animator villagerAnimator;
+    public bool isVillagerTP = false;
 
     private int currentLineIndex = 0;
     private bool playerInRange = false;
@@ -48,14 +51,15 @@ public class VillagerSystem : MonoBehaviour
         {
             if (!textBox.activeInHierarchy)
             {
-                ShowDialogue();
+                ShowDialogue(); 
             }
             else
             {
-                AdvanceDialogue();
+                AdvanceDialogue(); 
             }
         }
     }
+
 
     void ShowDialogue()
     {
@@ -83,6 +87,7 @@ public class VillagerSystem : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = true;
+            PlayGreetingAnimation(); 
         }
     }
 
@@ -95,4 +100,15 @@ public class VillagerSystem : MonoBehaviour
             currentLineIndex = 0;
         }
     }
+
+    private void PlayGreetingAnimation()
+    {
+        if (villagerAnimator != null)
+        {
+            string animationName = isVillagerTP ? "villagerWave2" : "villagerWave";
+            
+            villagerAnimator.SetTrigger(animationName);
+        }
+    }
 }
+
