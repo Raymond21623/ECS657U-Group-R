@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.012213493, g: 0.029977266, b: 0.043384757, a: 1}
+  m_IndirectSpecularColor: {r: 0.01216227, g: 0.02985223, b: 0.04319598, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2967,16 +2967,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162853364}
-  m_LocalRotation: {x: -0, y: 0.008726567, z: -0, w: 0.9999619}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1844806448}
-  m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.000004, y: 0}
+  m_AnchoredPosition: {x: -7.08, y: -0.566}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162853366
@@ -3026,13 +3026,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -9388,7 +9388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -301.45
+      value: -304.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9396,11 +9396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 168.06
+      value: 170.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.19102035
+      value: -0.5372996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9408,11 +9408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9815861
+      value: -0.8433915
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9420,7 +9420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -202.025
+      value: -245
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -15249,16 +15249,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813811542}
-  m_LocalRotation: {x: -0.0042382786, y: -0.9809134, z: -0.0031075515, w: 0.19437417}
-  m_LocalPosition: {x: 0, y: 0, z: 1.923146}
+  m_LocalRotation: {x: -0.004648668, y: -0.9988228, z: -0.0024514827, w: 0.048222303}
+  m_LocalPosition: {x: 0, y: 0, z: 0.57}
   m_LocalScale: {x: 0.6666694, y: 0.71428126, z: 0.6666699}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1813369773}
-  m_LocalEulerAnglesHint: {x: -0.444, y: 0.797, z: 0.407}
+  m_LocalEulerAnglesHint: {x: -0.306, y: -174.473, z: 0.519}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.852831, y: 0.5000008}
+  m_AnchoredPosition: {x: -6.35, y: 0.19}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &813811544
@@ -15308,13 +15308,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -18020,6 +18020,177 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.999999, y: 0.00000060398315, z: 7.999999}
   m_Center: {x: 0, y: 1.1368684e-13, z: 0}
+--- !u!1 &936153093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936153094}
+  - component: {fileID: 936153096}
+  - component: {fileID: 936153095}
+  m_Layer: 0
+  m_Name: nameText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &936153094
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936153093}
+  m_LocalRotation: {x: -0.004648668, y: -0.9988228, z: -0.0024514827, w: 0.048222303}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 0.6666694, y: 0.71428126, z: 0.6666699}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1813369773}
+  m_LocalEulerAnglesHint: {x: -0.306, y: -174.473, z: 0.519}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -6.44, y: 0.081}
+  m_SizeDelta: {x: 20, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &936153095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936153093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Eric The Wiser
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4287823878
+  m_fontColor: {r: 0.022479363, g: 0, b: 0.5754717, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 1
+  m_fontSizeBase: 1
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 15.568268, w: 4.397169}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 936153096}
+  m_maskType: 0
+--- !u!23 &936153096
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936153093}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &941430724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125426, guid: 64cb684f38ab4e547a77225cd823cf62, type: 3}
@@ -30772,8 +30943,8 @@ MonoBehaviour:
   - 'Me: My crown... I had forgotten. The weight of it, the responsibility. '
   - 'Villager: You were more than just a ruler; you were a beacon of hope. We need
     you to reclaim the throne and free us from Loris''s tyranny '
-  - 'Me: But how do I reclaim my throne '
-  - 'Villager: Do not worry, let me teach you some skills... '
+  - 'Me: But how do I reclaim my throne?'
+  - 'Villager: Do not worry, let  Eric The Wise teach you some skills... '
   villagerAnimator: {fileID: 1844806447}
   isVillagerTP: 0
 --- !u!135 &1569219025
@@ -31497,19 +31668,28 @@ MonoBehaviour:
   textBox: {fileID: 445283031}
   textComponent: {fileID: 315921920}
   dialogueLines:
-  - 'Armour:'
-  - 'Me: Dungeons? I remember nothing but shadows and cold stone walls. Tell me,
-    what has happened?'
-  - 'Villager: It''s been miserable since you were taken. The usurper, Loris, he
-    struck you down and claimed your crown.'
-  - 'Me: Loris? My own advisor turned against me? '
-  - 'Villager: Yes, and under his rule, the kingdom has suffered greatly. We''ve
-    awaited your return, our true king. '
-  - 'Me: My crown... I had forgotten. The weight of it, the responsibility. '
-  - 'Villager: You were more than just a ruler; you were a beacon of hope. We need
-    you to reclaim the throne and free us from Loris''s tyranny '
-  - 'Me: But how do I reclaim my throne '
-  - 'Villager: Do not worry, let me teach you some skills... '
+  - 'Eric The Wise: Ah, you have arrived! Before you embark on your quest, you must
+    master the basics of movement and combat. '
+  - 'Me: I''m ready to learn. What should I do first? '
+  - 'Eric The Wise: First, let''s start with movement. Use ''W'' to move forward,
+    ''A'' to move left, ''S'' to move back, and ''D'' to move right. Try moving around
+    to get a feel for it. '
+  - 'Me: (moves around) Alright, that feels natural. '
+  - 'Eric The Wise: Good. Now, press ''Space'' to jump. This can help you overcome
+    obstacles or avoid attacks. '
+  - 'Me: (jumps) Got it. What''s next? '
+  - 'Eric The Wise: To keep a low profile, use ''C'' to crouch. '
+  - 'Me: (crouches) This will be useful. '
+  - 'Eric The Wise: Indeed. Now, for combat. Press ''R'' to equip your sword. '
+  - 'Me: (equips sword) The sword feels right in my hands. '
+  - 'Eric The Wise: With your sword equipped, use the left mouse button to strike.
+    For a combo, click it rapidly in succession. Try it out. '
+  - 'Me: (performs a few strikes and combos) Like this? '
+  - 'Eric The Wise: Excellent! Remember, timing and rhythm are key to effective combos.
+    Finally, press ''F'' to interact with doors and villagers like myself. '
+  - 'Me: (presses F to interact) Interaction seems simple enough. '
+  - 'Eric The Wise: Yes, it is. With these skills, you are ready to face the challenges
+    ahead. Remember them well, and you will prevail in your quest. '
   villagerAnimator: {fileID: 1813369772}
   isVillagerTP: 0
 --- !u!135 &1612521245
@@ -34729,10 +34909,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 813811543}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 936153094}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1813369771}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1813369774}
   m_SourcePrefab: {fileID: 100100000, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
 --- !u!1001 &1774171664
 PrefabInstance:
@@ -35544,6 +35730,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
   m_PrefabInstance: {fileID: 1773520663}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1813369774
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813369770}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1814357946
 PrefabInstance:
   m_ObjectHideFlags: 0

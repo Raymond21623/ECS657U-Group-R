@@ -1,4 +1,4 @@
-/*First Villager
+/* First Villager
 
 Villager: Your Majesty, you've returned! But... you look so different. What happened to you in the dungeons?
 Me: Dungeons? I remember nothing but shadows and cold stone walls. Tell me, what has happened?
@@ -7,8 +7,26 @@ Me: Loris? My own advisor turned against me?
 Villager: Yes, and under his rule, the kingdom has suffered greatly. We've awaited your return, our true king.
 Me: My crown... I had forgotten. The weight of it, the responsibility.
 Villager: You were more than just a ruler; you were a beacon of hope. We need you to reclaim the throne and free us from Loris's tyranny
-Me: But how do i reclaim my throne
-Villager: Do not worry, let me teach you some skills...
+Me: But how do I reclaim my throne?
+Villager: Do not worry, let  Eric The Wise teach you some skills...
+*/
+
+/* Eric The Wise
+
+Eric The Wise: Ah, you have arrived! Before you embark on your quest, you must master the basics of movement and combat.
+Me: I'm ready to learn. What should I do first?
+Eric The Wise: First, let's start with movement. Use 'W' to move forward, 'A' to move left, 'S' to move back, and 'D' to move right. Try moving around to get a feel for it.
+Me: (moves around) Alright, that feels natural.
+Eric The Wise: Good. Now, press 'Space' to jump. This can help you overcome obstacles or avoid attacks.
+Me: (jumps) Got it. What's next?
+Eric The Wise: To keep a low profile, use 'C' to crouch.
+Me: (crouches) This will be useful.
+Eric The Wise: Indeed. Now, for combat. Press 'R' to equip your sword.
+Me: (equips sword) The sword feels right in my hands.
+Eric The Wise: With your sword equipped, use the left mouse button to strike. For a combo, click it rapidly in succession. Try it out.
+Me: (performs a few strikes and combos) Like this?
+Eric The Wise: Excellent! Remember, timing and rhythm are key to effective combos. Finally, press 'F' to interact with doors and villagers like myself.
+Me: (presses F to interact) Interaction seems simple enough.
 */
 
 /* VillagerTP
@@ -32,7 +50,7 @@ public class VillagerSystem : MonoBehaviour
 {
     public GameObject textBox;
     public TextMeshProUGUI textComponent;
-    public string[] dialogueLines; // Dialogue lines set in the editor
+    public string[] dialogueLines;
 
     public Animator villagerAnimator;
     public bool isVillagerTP = false;
