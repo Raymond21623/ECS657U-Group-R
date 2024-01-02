@@ -31571,6 +31571,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1824023524291160598, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
+      propertyPath: airControl
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824023524291160598, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
       propertyPath: jumpHeight
       value: 6
       objectReference: {fileID: 0}
@@ -31585,6 +31589,14 @@ PrefabInstance:
     - target: {fileID: 1824023524291160598, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
       propertyPath: sprintSpeed
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824023524291160598, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
+      propertyPath: rotationDampTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824023524291160598, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
+      propertyPath: velocityDampTime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2660280899922051523, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
       propertyPath: m_Height
@@ -31685,6 +31697,14 @@ PrefabInstance:
     - target: {fileID: 8210470044400248731, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309361422047130551, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
+      propertyPath: isGrounded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309361422047130551, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
+      propertyPath: gravityIntensity
+      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
