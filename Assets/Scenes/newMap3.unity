@@ -23623,7 +23623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301277665}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.60876137, z: 0, w: 0.7933534}
   m_LocalPosition: {x: -301.45, y: 2.67, z: 168.06}
   m_LocalScale: {x: 2, y: 2.5, z: 2}
   m_ConstrainProportionsScale: 0
@@ -23631,7 +23631,7 @@ Transform:
   - {fileID: 1569219023}
   - {fileID: 162853365}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -75, z: 0}
 --- !u!1001 &1301320880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29127,6 +29127,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 445283031}
   textComponent: {fileID: 315921920}
+  dialogueLines:
+  - 'Villager: Your Majesty, you''ve returned! But... you look so different. What
+    happened to you in the dungeons?'
+  - 'Me: Dungeons? I remember nothing but shadows and cold stone walls. Tell me,
+    what has happened?'
+  - 'Villager: It''s been miserable since you were taken. The usurper, Loris, he
+    struck you down and claimed your crown.'
+  - 'Me: Loris? My own advisor turned against me? '
+  - 'Villager: Yes, and under his rule, the kingdom has suffered greatly. We''ve
+    awaited your return, our true king. '
+  - 'Me: My crown... I had forgotten. The weight of it, the responsibility. '
+  - 'Villager: You were more than just a ruler; you were a beacon of hope. We need
+    you to reclaim the throne and free us from Loris''s tyranny '
+  - 'Me: But how do I reclaim my throne '
+  - 'Villager: Do not worry, let me teach you some skills... '
 --- !u!135 &1569219025
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -38734,6 +38749,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 445283031}
   textComponent: {fileID: 315921920}
+  dialogueLines:
+  - 'Villager: Ah, brave hero! You''ve done well to reach this point. But the true
+    challenge lies ahead. '
+  - 'Me: What must I do next? '
+  - 'Villager: You must journey to the castle. Within its walls, enemies and the
+    false king await. '
+  - 'Me: The king... He betrayed us all. I will face him." '
+  - 'Villager: Be cautious. The castle is heavily guarded, and the king is a formidable
+    foe." '
+  - 'Me: I am ready. How do I reach the castle?" '
+  - 'Villager: I possess an ancient spell of teleportation. When you are ready step
+    on to the white square. Once there, fight bravely and reclaim your rightful place
+    as our ruler. '
+  - 'Me: I am prepared. Let''s do this. '
+  - 'Villager: Very well. May the light guide you. *chants an ancient spell* Farewell,
+    hero, until you return as our king! '
 --- !u!135 &2091989869
 SphereCollider:
   m_ObjectHideFlags: 0
