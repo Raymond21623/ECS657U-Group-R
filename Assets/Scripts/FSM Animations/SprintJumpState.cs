@@ -21,10 +21,11 @@ public class SprintJumpState:State
     }
 
 	public override void Exit()
-	{
-		base.Exit();
-        character.animator.applyRootMotion = false;
-    }
+{
+    base.Exit();
+    character.animator.applyRootMotion = false;
+    character.animator.ResetTrigger("sprintJump");
+}
 
 	public override void LogicUpdate()
     {
