@@ -9,4 +9,17 @@ public class Inventory : MonoBehaviour
     {
         items.Add(item);
     }
+
+    public bool checkItems(string itemName)
+    {
+        foreach (var item in items)
+        {
+            if (item != null && item.name == itemName)
+            {
+                Debug.Log(item + "is in inventory");
+                return true;
+            }
+        }
+        return false;
+    }
 }
