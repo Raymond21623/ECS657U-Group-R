@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class keyDoor : MonoBehaviour
 {
     private bool playerInRange = false;
     private bool isDoorOpen = false;
 
-    private Inventory playerInventory; // Reference to the player's inventory
+    private Inventory playerInventory;
 
+    public GameObject textBox;
+    public TextMeshProUGUI textComponent;
 
+    void Start()
+    {
+        textBox.SetActive(false);
+
+    }
 
     void Update()
     {
@@ -18,6 +26,10 @@ public class keyDoor : MonoBehaviour
             if (!isDoorOpen && playerInventory != null && playerInventory.checkItems("doorKey(Clone)"))
             {
                 OpenDoor();
+            }
+            else
+            {
+                ShowMessage();
             }
         }
     }
@@ -40,6 +52,21 @@ public class keyDoor : MonoBehaviour
         isDoorOpen = false;
     }
 
+    private void ShowMessage()
+    {
+        textBox.SetActive(true);
+        textComponent.text = "Missing Key";
+        StartCoroutine(HideMessageAfterDelay(3));
+        
+    }
+
+    IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        textBox.gameObject.SetActive(false);
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -57,10 +84,5 @@ public class keyDoor : MonoBehaviour
             playerInRange = false;
             playerInventory = null;
         }
-    }
-
-    private bool hasKey()
-    {
-        return playerInventory != null && playerInventory.items.Count > 0;
     }
 }

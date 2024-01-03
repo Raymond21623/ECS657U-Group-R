@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.012213493, g: 0.029977266, b: 0.043384757, a: 1}
+  m_IndirectSpecularColor: {r: 0.01216227, g: 0.02985223, b: 0.04319598, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14295,6 +14295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bbd8aa11dbc34fde97057e24c1597a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBox: {fileID: 1581792411}
+  textComponent: {fileID: 2121800897}
 --- !u!1001 &686627349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35480,6 +35482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bbd8aa11dbc34fde97057e24c1597a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBox: {fileID: 0}
+  textComponent: {fileID: 0}
 --- !u!64 &1675991669
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43997,6 +44001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bbd8aa11dbc34fde97057e24c1597a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBox: {fileID: 1581792411}
+  textComponent: {fileID: 2121800897}
 --- !u!1001 &2109683707
 PrefabInstance:
   m_ObjectHideFlags: 0
