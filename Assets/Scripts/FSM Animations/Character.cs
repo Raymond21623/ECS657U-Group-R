@@ -77,6 +77,11 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isPaused) 
+        {
+            return; 
+        }
+
         movementSM.currentState.HandleInput();
 
         movementSM.currentState.LogicUpdate();
@@ -84,6 +89,10 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PauseMenu.isPaused) 
+        {
+            return; 
+        }
         movementSM.currentState.PhysicsUpdate();
     }
 }

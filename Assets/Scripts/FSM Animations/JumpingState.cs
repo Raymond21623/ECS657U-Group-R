@@ -46,7 +46,7 @@ public class JumpingState : State
         timeInAir += Time.deltaTime;
         grounded = character.controller.isGrounded;
 
-        if (timeInAir > 0.675f && grounded)
+        if (timeInAir > 0.61f && grounded)
         {
             character.animator.SetTrigger("move");
             if (input.magnitude > 0)

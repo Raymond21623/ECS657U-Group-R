@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         cameraObject = Camera.main.transform;
 
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -47,7 +47,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        HandleAllMovement();
+        if (!PauseMenu.isPaused) // Check if the game is not paused
+        {
+            HandleAllMovement();
+        }
     }
 
     public void HandleAllMovement()
