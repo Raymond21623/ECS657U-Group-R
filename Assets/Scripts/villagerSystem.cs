@@ -48,8 +48,10 @@ using TMPro;
 
 public class VillagerSystem : MonoBehaviour
 {
-    public GameObject textBox;
-    public TextMeshProUGUI textComponent;
+    public GameObject textBox1;
+    public GameObject textBox2;
+    public TextMeshProUGUI textComponent1;
+    public TextMeshProUGUI textComponent_2;
     public string[] dialogueLines;
 
     public bool isVillagerTP = false;
@@ -60,29 +62,30 @@ public class VillagerSystem : MonoBehaviour
 
     void Start()
     {
-        textBox.SetActive(false);
+        textBox1.SetActive(false);
+        textBox2.SetActive(false);
     }
 
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            if (!textBox.activeInHierarchy)
+            if (!textBox1.activeInHierarchy)
             {
-                ShowDialogue(); 
+                ShowDialogue();
             }
             else
             {
-                AdvanceDialogue(); 
+                AdvanceDialogue();
             }
         }
     }
 
-
     void ShowDialogue()
     {
-        textBox.SetActive(true);
-        textComponent.text = dialogueLines[currentLineIndex];
+        textBox1.SetActive(true);
+        textComponent1.text = dialogueLines[currentLineIndex];
+        UpdateTextComponent2();
     }
 
     void AdvanceDialogue()
@@ -91,12 +94,26 @@ public class VillagerSystem : MonoBehaviour
 
         if (currentLineIndex < dialogueLines.Length)
         {
-            textComponent.text = dialogueLines[currentLineIndex];
+            textComponent1.text = dialogueLines[currentLineIndex];
+            UpdateTextComponent2();
         }
         else
         {
-            textBox.SetActive(false);
+            textBox1.SetActive(false);
+            textBox2.SetActive(false);
             currentLineIndex = 0;
+        }
+    }
+
+    void UpdateTextComponent2()
+    {
+        if (currentLineIndex >= dialogueLines.Length - 1)
+        {
+            textComponent_2.text = "End Of Conversation";
+        }
+        else
+        {
+            textComponent_2.text = "Press[F] For Next Line";
         }
     }
 
@@ -105,7 +122,8 @@ public class VillagerSystem : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = true;
-            PlayGreetingAnimation(); 
+            PlayGreetingAnimation();
+            textBox2.SetActive(true);
         }
     }
 
@@ -114,7 +132,8 @@ public class VillagerSystem : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = false;
-            textBox.SetActive(false);
+            textBox1.SetActive(false);
+            textBox2.SetActive(false);
             currentLineIndex = 0;
         }
     }
