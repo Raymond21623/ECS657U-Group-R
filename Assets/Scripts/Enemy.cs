@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] float attackCD = 3f;
     [SerializeField] float attackRange = 2f;
     [SerializeField] float aggroRange = 7f;
+
+    [Header("Key Drop")]
+    [SerializeField] GameObject doorKeyPrefab;
  
     GameObject player;
     NavMeshAgent agent;
@@ -67,8 +70,14 @@ public class Enemy : MonoBehaviour
  
     void Die()
     {
-        Instantiate(ragdoll, transform.position,transform.rotation);
-        Destroy(this.gameObject);
+        Instantiate(ragdoll, transform.position, transform.rotation);
+
+        if (doorKeyPrefab != null)
+        {
+            Instantiate(doorKeyPrefab, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
     }
  
     public void TakeDamage(float damageAmount)
