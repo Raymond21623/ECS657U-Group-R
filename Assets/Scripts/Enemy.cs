@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
  
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float health = 3;
+    public Slider healthbar;
+
     [SerializeField] GameObject hitVFX;
-     [SerializeField] GameObject ragdoll;
+    [SerializeField] GameObject ragdoll;
  
     [Header("Combat")]
     [SerializeField] float attackCD = 3f;
@@ -33,6 +36,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        healthbar.value = health;
         animator.SetFloat("speed", agent.velocity.magnitude / agent.speed);
  
         if (player == null)
