@@ -7,11 +7,15 @@ public class keyDoor : MonoBehaviour
     private bool playerInRange = false;
     private bool isDoorOpen = false;
 
+    private Inventory playerInventory; // Reference to the player's inventory
+
+
+
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            if (!isDoorOpen)
+            if (!isDoorOpen && playerInventory != null && playerInventory.checkItems("doorKey(Clone)"))
             {
                 OpenDoor();
             }
@@ -41,6 +45,8 @@ public class keyDoor : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = true;
+            playerInventory = other.gameObject.GetComponent<Inventory>();
+
         }
     }
 
@@ -49,6 +55,12 @@ public class keyDoor : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = false;
+            playerInventory = null;
         }
+    }
+
+    private bool hasKey()
+    {
+        return playerInventory != null && playerInventory.items.Count > 0;
     }
 }
