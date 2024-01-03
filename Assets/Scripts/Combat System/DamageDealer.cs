@@ -19,9 +19,11 @@ public class DamageDealer : MonoBehaviour
         if (canDealDamage)
         {
             RaycastHit hit;
- 
+
+            float sphereRadius = 0.75f; 
             int layerMask = 1 << 9;
-            if (Physics.Raycast(transform.position, -transform.up, out hit, weaponLength, layerMask))
+
+            if (Physics.SphereCast(transform.position, sphereRadius, -transform.up, out hit, weaponLength, layerMask))
             {
                 if (hit.transform.TryGetComponent(out Enemy enemy) && !hasDealtDamage.Contains(hit.transform.gameObject))
                 {
@@ -32,6 +34,7 @@ public class DamageDealer : MonoBehaviour
             }
         }
     }
+
     public void StartDealDamage()
     {
         canDealDamage = true;
@@ -45,6 +48,9 @@ public class DamageDealer : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
+        float sphereRadius = 0.75f; 
+        Gizmos.DrawWireSphere(transform.position, sphereRadius);
         Gizmos.DrawLine(transform.position, transform.position - transform.up * weaponLength);
     }
+
 }

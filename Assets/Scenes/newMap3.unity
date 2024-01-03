@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.01216227, g: 0.02985223, b: 0.04319598, a: 1}
+  m_IndirectSpecularColor: {r: 0.012213493, g: 0.029977266, b: 0.043384757, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24970,6 +24970,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7485811954880186322, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
   m_PrefabInstance: {fileID: 1764221279237032881}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1192724120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192724092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2d78205efe45b40a9f291ac0ccb0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
 --- !u!1001 &1195325742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31418,7 +31431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: attackRange
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3027049117036452979, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: m_Height
@@ -32841,8 +32854,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: attackRange
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
+      propertyPath: doorKeyPrefab
+      value: 
+      objectReference: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
     - target: {fileID: 3225431550996676697, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -41073,7 +41090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: attackRange
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3225431550996676697, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: m_LocalScale.x
@@ -44696,10 +44713,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7999771014797569598, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999771014797569598, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.90184605
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999771014797569598, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.06930716
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999771014797569598, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.16412294
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999771014797569598, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.39361644
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999771014797569598, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999771014797569598, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 20.523
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999771014797569598, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 47.115
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7829827786061765992, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1192724120}
   m_SourcePrefab: {fileID: 100100000, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
