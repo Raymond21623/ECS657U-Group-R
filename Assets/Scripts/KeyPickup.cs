@@ -1,22 +1,10 @@
 using UnityEngine;
-using TMPro;
 
 public class KeyPickup : MonoBehaviour
 {
-    public string pickupPromptName; // Correctly declared as a string
-    private TextMeshProUGUI pickupPromptText;
+    public Canvas pickupPromptCanvas; // Direct reference to the Canvas component
 
     private bool isPlayerNear = false;
-
-    private void Start()
-    {
-        // Find the TextMeshPro component by searching for its name
-        GameObject pickupPromptGameObject = GameObject.Find(pickupPromptName);
-        if (pickupPromptGameObject != null)
-        {
-            pickupPromptText = pickupPromptGameObject.GetComponent<TextMeshProUGUI>();
-        }
-    }
 
     private void Update()
     {
@@ -28,11 +16,16 @@ public class KeyPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnTriggerEnter called");
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player detected");
             isPlayerNear = true;
-            if (pickupPromptText != null)
-                pickupPromptText.gameObject.SetActive(true); // Show the pickup prompt
+            if (pickupPromptCanvas != null)
+            {
+                Debug.Log("Showing Canvas");
+                pickupPromptCanvas.enabled = true; // Show the Canvas
+            }
         }
     }
 
@@ -41,20 +34,20 @@ public class KeyPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNear = false;
-            if (pickupPromptText != null)
-                pickupPromptText.gameObject.SetActive(false); // Hide the pickup prompt
+            if (pickupPromptCanvas != null)
+                pickupPromptCanvas.enabled = false; // Hide the Canvas
         }
     }
 
     private void PickUp()
     {
-        Inventory playerInventory = Object.FindAnyObjectByType<Inventory>(); // Use the new method
+        Inventory playerInventory = Object.FindObjectOfType<Inventory>();
         if (playerInventory != null)
         {
             playerInventory.AddItem(gameObject);
             gameObject.SetActive(false); // Deactivate the key
-            if (pickupPromptText != null)
-                pickupPromptText.gameObject.SetActive(false); // Hide the prompt
+            if (pickupPromptCanvas != null)
+                pickupPromptCanvas.enabled = false; // Hide the Canvas
 
             Debug.Log("Key has been stored in inventory");
         }
