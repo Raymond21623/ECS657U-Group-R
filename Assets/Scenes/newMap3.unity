@@ -30944,7 +30944,7 @@ MonoBehaviour:
   - 'Villager: You were more than just a ruler; you were a beacon of hope. We need
     you to reclaim the throne and free us from Loris''s tyranny '
   - 'Me: But how do I reclaim my throne?'
-  - 'Villager: Do not worry, let  Eric The Wise teach you some skills... '
+  - 'Villager: Do not worry, let Eric The Wise teach you some skills... '
   villagerAnimator: {fileID: 1844806447}
   isVillagerTP: 0
 --- !u!135 &1569219025
