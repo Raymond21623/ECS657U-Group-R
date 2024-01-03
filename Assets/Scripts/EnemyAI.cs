@@ -115,7 +115,6 @@ private void AttackPlayer()
     public void TakeDamage(int damage)
     {
         health -= damage;
-        healthBar.UpdateHealthBar(health);
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }

@@ -5,32 +5,17 @@ using UnityEngine.UI;
 
 public class EnemyHealthBar : MonoBehaviour
 {
-    [SerializeField] private Slider e_slider;
-    [SerializeField] private Camera e_camera;
-    [SerializeField] private Transform target;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] public Transform target;
 
-
-
-    public void UpdateHealthBar(float currentValue)
-    {
-        e_slider.value = currentValue;
-    }
-
-
-    // Update is called once per frame
     void Update()
     {
-        transform.rotation = e_camera.transform.rotation;
-        transform.position = target.position + offset;
-    }
+        // Get the current rotation of the health bar
+        Vector3 currentRotation = transform.eulerAngles;
 
-    void Awake()
-    {
-        if (e_camera == null)
-        {
-            e_camera = Camera.main;
-        }
-    }
+        // Calculate the new rotation only along the Y-axis
+        float newYRotation = Mathf.Atan2(target.position.x - transform.position.x, target.position.z - transform.position.z) * Mathf.Rad2Deg;
 
+        // Set the new rotation while keeping X and Z axes unchanged
+        transform.eulerAngles = new Vector3(currentRotation.x, newYRotation, currentRotation.z);
+    }
 }
