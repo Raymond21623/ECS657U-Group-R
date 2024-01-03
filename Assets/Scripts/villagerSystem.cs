@@ -27,8 +27,7 @@ Eric The Wise: With your sword equipped, use the left mouse button to strike. Fo
 Me: (performs a few strikes and combos) Like this?
 Eric The Wise: Excellent! Remember, timing and rhythm are key to effective combos. Finally, press 'F' to interact with doors and villagers like myself.
 Me: (presses F to interact) Interaction seems simple enough.
-Eric The Wise: Yes, it is. With these skills, you are ready to face the challenges ahead. Remember them well, and you will prevail in your quest.
-*/
+w*/
 
 /* VillagerTP
 
@@ -53,8 +52,8 @@ public class VillagerSystem : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] dialogueLines;
 
-    public Animator villagerAnimator;
     public bool isVillagerTP = false;
+    public Animator villagerAnimator;
 
     private int currentLineIndex = 0;
     private bool playerInRange = false;
