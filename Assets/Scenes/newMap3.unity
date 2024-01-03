@@ -739,6 +739,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d355bff9304dd7479ef7cafde951d57, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1548925750}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d355bff9304dd7479ef7cafde951d57, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1548925753}
   m_SourcePrefab: {fileID: 100100000, guid: 8d355bff9304dd7479ef7cafde951d57, type: 3}
 --- !u!1 &30865362 stripped
 GameObject:
@@ -3021,6 +3024,92 @@ Transform:
   - {fileID: 220636412}
   m_Father: {fileID: 339060455}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1001 &144239511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -325.07227
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 164.31508
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_Name
+      value: Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 141bc57c29639194ea1c54cbcc5a4c25, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1704379306}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1704379305}
+    - targetCorrespondingSourceObject: {fileID: 2715566404302941441, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1712071311}
+  m_SourcePrefab: {fileID: 100100000, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
 --- !u!1 &145410530
 GameObject:
   m_ObjectHideFlags: 0
@@ -31442,6 +31531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Warrior (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1885229800432008413, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
+      propertyPath: weaponLength
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: healthbar
       value: 
@@ -31452,7 +31545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: attackRange
-      value: 3
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 3027049117036452979, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: m_Height
@@ -32571,6 +32664,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8d355bff9304dd7479ef7cafde951d57, type: 3}
   m_PrefabInstance: {fileID: 29118609}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1548925753
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548925749}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: f9f25d13147a0744e88264b51bc3ebd7, type: 3}
+  m_Controller: {fileID: 9100000, guid: 9573f5d809584e14e8436b28bb2dec4c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1551899324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32865,6 +32980,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Warrior (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1885229800432008413, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
+      propertyPath: weaponLength
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: healthbar
       value: 
@@ -32875,7 +32994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: attackRange
-      value: 3
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: doorKeyPrefab
@@ -33876,7 +33995,7 @@ MonoBehaviour:
   - 'Eric The Wise: Yes, it is. With these skills, you are ready to face the challenges
     ahead. Remember if you need pause, just press ESC. '
   isVillagerTP: 0
-  villagerAnimator: {fileID: 0}
+  villagerAnimator: {fileID: 1548925753}
 --- !u!135 &1612521245
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -35885,6 +36004,53 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.999999, y: 0.00000060398315, z: 7.999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1704379304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+  m_PrefabInstance: {fileID: 144239511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1704379305
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704379304}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 7
+  m_Acceleration: 10
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 4
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1704379306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704379304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88fec7d77b7286b47be70b4a4b4be8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4
+  healthbar: {fileID: 0}
+  hitVFX: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
+  ragdoll: {fileID: 6418614745302871598, guid: f5a9b899ffce5eb4a81f1a7647477c5a, type: 3}
+  attackCD: 1.5
+  attackRange: 3
+  aggroRange: 20
+  doorKeyPrefab: {fileID: 0}
 --- !u!1001 &1704489529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36096,6 +36262,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 406854, guid: 2b28d52e9282f5844af4fa29dc0c1032, type: 3}
   m_PrefabInstance: {fileID: 1712059032}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1712071309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2715566404302941441, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+  m_PrefabInstance: {fileID: 144239511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1712071311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712071309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abd77ac4b8b34747b74f6b286893177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLength: 3
+  weaponDamage: 1
 --- !u!1 &1712717575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125426, guid: 64cb684f38ab4e547a77225cd823cf62, type: 3}
@@ -41101,6 +41286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 1885229800432008413, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
+      propertyPath: weaponLength
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: healthbar
       value: 
@@ -41111,7 +41300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239983596678935746, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: attackRange
-      value: 3
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 3225431550996676697, guid: 2edfa0da799dd534d85ed058d39acf99, type: 3}
       propertyPath: m_LocalScale.x
@@ -44822,3 +45011,4 @@ SceneRoots:
   - {fileID: 109440129}
   - {fileID: 837149763}
   - {fileID: 29118609}
+  - {fileID: 144239511}

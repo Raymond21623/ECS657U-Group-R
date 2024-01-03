@@ -14,8 +14,8 @@ public class Enemy : MonoBehaviour
  
     [Header("Combat")]
     [SerializeField] float attackCD = 3f;
-    [SerializeField] float attackRange = 2f;
-    [SerializeField] float aggroRange = 7f;
+    [SerializeField] float attackRange = 3.8f;
+    [SerializeField] float aggroRange = 20f;
 
     [Header("Key Drop")]
     [SerializeField] GameObject doorKeyPrefab;
