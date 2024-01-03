@@ -13049,7 +13049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000022888184}
+  m_AnchoredPosition: {x: 0.000015258789, y: -0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &638090634
@@ -13085,7 +13085,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4284772244
   m_fontColor: {r: 0.5803922, g: 0.43529412, b: 0.39215687, a: 1}
-  m_enableVertexGradient: 1
+  m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -14885,8 +14885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0094986, y: 126.721}
-  m_SizeDelta: {x: 500.69, y: 99.771}
+  m_AnchoredPosition: {x: 0.0014399, y: 126.721}
+  m_SizeDelta: {x: 500.67, y: 99.771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716380540
 MonoBehaviour:
@@ -14932,7 +14932,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1192724134}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -18216,7 +18216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000020981, y: -57.522}
+  m_AnchoredPosition: {x: 0.0014324, y: 19.313}
   m_SizeDelta: {x: 500.668, y: 115.045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &894483991
@@ -18263,7 +18263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1192724134}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
@@ -23736,8 +23736,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -240}
-  m_SizeDelta: {x: 500, y: 100}
+  m_AnchoredPosition: {x: 0.0022316, y: -79.792}
+  m_SizeDelta: {x: 500.67, y: 83.165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129206879
 MonoBehaviour:
@@ -23783,7 +23783,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1192724134}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
@@ -24983,6 +24983,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+--- !u!82 &1192724122 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7436931129246209102, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+  m_PrefabInstance: {fileID: 1764221279237032881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1192724134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192724092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b820db1cea4bc1438ce7c48b7e0a49b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 882074878}
+  audioSource: {fileID: 1192724122}
+  gameplayMusic: {fileID: 8300000, guid: 470544d826c66474292cba7d3aa87ef3, type: 3}
+  pauseMenuMusic: {fileID: 8300000, guid: 6c9f8fc809371224caeb2f481dd06cc0, type: 3}
 --- !u!1001 &1195325742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44668,7 +44689,7 @@ PrefabInstance:
     - target: {fileID: 5824665802518698732, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 882074878}
+      objectReference: {fileID: 1422680709}
     - target: {fileID: 7485811954880186322, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -282.65
@@ -44745,13 +44766,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 47.115
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5824665802518698732, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7829827786061765992, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1192724120}
+    - targetCorrespondingSourceObject: {fileID: 7829827786061765992, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1192724134}
   m_SourcePrefab: {fileID: 100100000, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
