@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject healthCanvas; // Reference to the health canvas
     public static bool isPaused;
 
     public AudioSource audioSource; 
@@ -35,10 +36,12 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
+        if (healthCanvas != null) healthCanvas.SetActive(false); // Deactivate health canvas
         Time.timeScale = 0f;
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
         if (audioSource != null && pauseMenuMusic != null)
         {
             audioSource.clip = pauseMenuMusic;
@@ -49,6 +52,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        if (healthCanvas != null) healthCanvas.SetActive(true); // Reactivate health canvas
         Time.timeScale = 1f;
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -60,7 +64,6 @@ public class PauseMenu : MonoBehaviour
             audioSource.Play();
         }
     }
-
 
     public void GoToMainMenu()
     {
