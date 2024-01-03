@@ -1,57 +1,73 @@
 using UnityEngine;
 
-public class JumpingState:State
+public class JumpingState : State
 {
-    bool grounded;
-
-    float gravityValue;
-    float jumpHeight;
-    float playerSpeed;
-
-    Vector3 airVelocity;
+    private bool grounded;
+    private float gravityValue;
+    private float jumpHeight;
+    private float playerSpeed;
+    private Vector3 airVelocity;
+    new private Vector3 gravityVelocity;
+    private float timeInAir;
 
     public JumpingState(Character _character, StateMachine _stateMachine) : base(_character, _stateMachine)
-	{
-		character = _character;
-		stateMachine = _stateMachine;
-	}
+    {
+        character = _character;
+        stateMachine = _stateMachine;
+    }
 
     public override void Enter()
-	{
-		base.Enter();
+    {
+        base.Enter();
 
-		grounded = false;
+        grounded = false;
         gravityValue = character.gravityValue;
         jumpHeight = character.jumpHeight;
         playerSpeed = character.playerSpeed;
-        gravityVelocity.y = 0;
+        gravityVelocity = Vector3.zero;
 
         character.animator.SetFloat("speed", 0);
         character.animator.SetTrigger("jump");
         Jump();
-	}
-	public override void HandleInput()
-	{
-		base.HandleInput();
 
+        timeInAir = 0f;
+    }
+
+    public override void HandleInput()
+    {
+        base.HandleInput();
         input = moveAction.ReadValue<Vector2>();
     }
 
-	public override void LogicUpdate()
+    public override void LogicUpdate()
     {
         base.LogicUpdate();
 
-        if (grounded)
-		{
-            stateMachine.ChangeState(character.landing);
+        timeInAir += Time.deltaTime;
+        grounded = character.controller.isGrounded;
+
+        if (timeInAir > 0.675f && grounded)
+        {
+            character.animator.SetTrigger("move");
+            if (input.magnitude > 0)
+            {
+                // Transition to sprinting state if there is input indicating movement
+                stateMachine.ChangeState(character.sprinting);
+            }
+            else
+            {
+                // Transition to standing state if there is no input
+                stateMachine.ChangeState(character.standing); // Ensure character.standing is defined in your Character class
+            }
         }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-		if (!grounded)
-		{
+
+        if (!grounded)
+        {
 
             velocity = character.playerVelocity;
             airVelocity = new Vector3(input.x, 0, input.y);

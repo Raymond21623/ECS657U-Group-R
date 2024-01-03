@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.01216227, g: 0.02985223, b: 0.04319598, a: 1}
+  m_IndirectSpecularColor: {r: 0.012213493, g: 0.029977266, b: 0.043384757, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -34205,7 +34205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1824023524291160598, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
       propertyPath: jumpHeight
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1824023524291160598, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
       propertyPath: crouchSpeed
@@ -34225,7 +34225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1824023524291160598, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
       propertyPath: velocityDampTime
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2660280899922051523, guid: 4bc3890f3d1bbf8418401e8c230aabb2, type: 3}
       propertyPath: m_Height
