@@ -27,6 +27,9 @@ Eric The Wise: With your sword equipped, use the left mouse button to strike. Fo
 Me: (performs a few strikes and combos) Like this?
 Eric The Wise: Excellent! Remember, timing and rhythm are key to effective combos. Finally, press 'F' to interact with doors and villagers like myself.
 Me: (presses F to interact) Interaction seems simple enough.
+Eric The Wise: You may need to pickup items such as key, use 'E' to pickup. Also, you will not be able to jump or crouch when you have your sword to make sure he don't hear us.
+Me: I see, thanks for the information.
+Eric The Wise: Yes, it is. With these skills, you are ready to face the challenges ahead. Remember if you need pause, just press ESC. 
 w*/
 
 /* VillagerTP
@@ -107,13 +110,15 @@ public class VillagerSystem : MonoBehaviour
 
     void UpdateTextComponent2()
     {
+        textBox2.SetActive(true);
+
         if (currentLineIndex >= dialogueLines.Length - 1)
         {
             textComponent_2.text = "End Of Conversation";
         }
         else
         {
-            textComponent_2.text = "Press[F] For Next Line";
+            textComponent_2.text = "Press [F] For Next Line";
         }
     }
 
@@ -123,7 +128,6 @@ public class VillagerSystem : MonoBehaviour
         {
             playerInRange = true;
             PlayGreetingAnimation();
-            textBox2.SetActive(true);
         }
     }
 

@@ -7,10 +7,12 @@ public class HealthSystem : MonoBehaviour
 {
     [SerializeField] float health = 10;
     [SerializeField] GameObject hitVFX;
-     [SerializeField] GameObject ragdoll;
+    [SerializeField] GameObject ragdoll;
 
-     [SerializeField] private TextMeshProUGUI healthText;
- 
+    [SerializeField] private TextMeshProUGUI healthText;
+     public Slider healthbar;
+
+
     Animator animator;
     void Start()
     {
@@ -46,6 +48,7 @@ public class HealthSystem : MonoBehaviour
         if (healthText != null)
         {
             healthText.text = "Health: " + health;
+            healthbar.value = health;
         }
     }
 }
