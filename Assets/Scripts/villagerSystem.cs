@@ -42,7 +42,7 @@ Villager: Be cautious. The castle is heavily guarded, and the king is a formidab
 Me: I am ready. How do I reach the castle?"
 Villager: I possess an ancient spell of teleportation. When you are ready step on to the white square. Once there, fight bravely and reclaim your rightful place as our ruler.
 Me: I am prepared. Let's do this.
-Villager: Very well. May the light guide you. *chants an ancient spell* Farewell, hero, until you return as our king!
+Villager: Very well. May the light guide you. *chants an ancient spell* Farewell, hero, until you return as our king! Also, eat some food on the table.
 */
 
 

@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using System.Collections;
 
 public class eatFood : MonoBehaviour
 {
@@ -12,8 +14,13 @@ public class eatFood : MonoBehaviour
     public GameObject[] foodModels;
     private int currentModelIndex = 1;
 
+    public GameObject textBox;
+    public TextMeshProUGUI textComponent;
+
     private void Start()
     {
+        textBox.SetActive(false);
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -32,10 +39,26 @@ public class eatFood : MonoBehaviour
             }
             else
             {
-                Debug.Log("Health Full");
+                ShowMessage();
+                Debug.Log("Full Health");
             }
                 
         }
+    }
+
+    private void ShowMessage()
+    {
+        textBox.SetActive(true);
+        textComponent.text = "Full Health";
+        StartCoroutine(HideMessageAfterDelay(3));
+
+    }
+
+    IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        textBox.gameObject.SetActive(false);
+
     }
 
     private void OnTriggerEnter(Collider other)
