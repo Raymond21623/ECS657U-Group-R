@@ -60,7 +60,7 @@ public class eatFood : MonoBehaviour
         Debug.Log("Eating");
         if (playerHealthSystem != null)
         {
-            if (playerHealthSystem.getHealth < 200)
+            if (playerHealthSystem.getHealth < 100)
             {
                 gameObject.SetActive(false);
                 if (pickupPromptCanvas != null)
