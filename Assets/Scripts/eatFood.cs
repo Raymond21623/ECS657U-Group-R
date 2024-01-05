@@ -25,8 +25,16 @@ public class eatFood : MonoBehaviour
     {
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
         {
-            eat();
-            currentModelIndex++;
+            if (playerHealthSystem.getHealth < 100)
+            {
+                eat();
+                currentModelIndex++;
+            }
+            else
+            {
+                Debug.Log("Health Full");
+            }
+                
         }
     }
 
@@ -60,19 +68,12 @@ public class eatFood : MonoBehaviour
         Debug.Log("Eating");
         if (playerHealthSystem != null)
         {
-            if (playerHealthSystem.getHealth < 100)
-            {
-                gameObject.SetActive(false);
-                if (pickupPromptCanvas != null)
-                    pickupPromptCanvas.enabled = false;
-                foodModels[currentModelIndex].SetActive(true);
-                Debug.Log(currentModelIndex);
-                playerHealthSystem.IncreaseHealth(healthIncreaseAmount);
-            }
-            else
-            {
-                Debug.Log("Health Full");
-            }
+            gameObject.SetActive(false);
+            if (pickupPromptCanvas != null)
+                pickupPromptCanvas.enabled = false;
+            foodModels[currentModelIndex].SetActive(true);
+            Debug.Log(currentModelIndex);
+            playerHealthSystem.IncreaseHealth(healthIncreaseAmount);         
         }
     }
 }
