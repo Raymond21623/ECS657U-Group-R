@@ -10,7 +10,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] GameObject ragdoll;
 
     [SerializeField] private TextMeshProUGUI healthText;
-     public Slider healthbar;
+    public Slider healthbar;
 
 
     Animator animator;
@@ -19,7 +19,12 @@ public class HealthSystem : MonoBehaviour
         animator = GetComponent<Animator>();
         UpdateHealthUI();
     }
- 
+
+    public float getHealth
+    {
+        get { return health; }
+    }
+
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
@@ -30,7 +35,13 @@ public class HealthSystem : MonoBehaviour
             Die();
         }
     }
- 
+
+    public void IncreaseHealth(float amount)
+    {
+        health += amount;
+        UpdateHealthUI();
+    }
+
     void Die()
     {
         Instantiate(ragdoll, transform.position, transform.rotation);
