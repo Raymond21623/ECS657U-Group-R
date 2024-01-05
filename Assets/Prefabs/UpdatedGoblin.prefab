@@ -83,7 +83,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 3
+  m_MaxValue: 5
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -617,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
       propertyPath: m_Name
-      value: Goblin 1
+      value: UpdatedGoblin
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
       propertyPath: m_Layer
@@ -767,9 +767,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7883198513571940209}
-    - targetCorrespondingSourceObject: {fileID: -76546954072915012, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5120724536234783804, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8761923061296166809}
+      addedObject: {fileID: 4678770304754168852}
   m_SourcePrefab: {fileID: 100100000, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
 --- !u!4 &3874862853624031881 stripped
 Transform:
@@ -793,14 +793,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fec7d77b7286b47be70b4a4b4be8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 5
   healthbar: {fileID: 3971803097726319580}
   hitVFX: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
   ragdoll: {fileID: 6418614745302871598, guid: f5a9b899ffce5eb4a81f1a7647477c5a, type: 3}
   attackCD: 1
   attackRange: 3
   aggroRange: 20
-  doorKeyPrefab: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
+  doorKeyPrefab: {fileID: 0}
 --- !u!195 &6318665657769533554
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -846,22 +846,22 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
---- !u!1 &5529561290180660958 stripped
+--- !u!1 &8456785471321028958 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -76546954072915012, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5120724536234783804, guid: 14cfcf21039bb80498ce36aaaeaa091a, type: 3}
   m_PrefabInstance: {fileID: 3624551356211170658}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8761923061296166809
+--- !u!114 &4678770304754168852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5529561290180660958}
+  m_GameObject: {fileID: 8456785471321028958}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7abd77ac4b8b34747b74f6b286893177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponLength: 3
-  weaponDamage: 0.5
+  weaponDamage: 6
