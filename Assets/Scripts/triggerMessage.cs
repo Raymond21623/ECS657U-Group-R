@@ -7,7 +7,9 @@ public class triggerMessage : MonoBehaviour
 {
 
     public GameObject textBox;
-    public TextMeshProUGUI textComponent;
+    public TypeWriterEffect typeWriterEffect;
+
+    public string message;
 
     void Start()
     {
@@ -17,7 +19,8 @@ public class triggerMessage : MonoBehaviour
     private void ShowMessage()
     {
         textBox.SetActive(true);
-        textComponent.text = "Tutorial Level";
+        typeWriterEffect.fullText = message;
+        typeWriterEffect.RevealText();
     }
 
 
