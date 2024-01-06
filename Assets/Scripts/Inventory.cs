@@ -10,7 +10,6 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         keyImage.SetActive(false);
-
     }
 
 
@@ -25,6 +24,7 @@ public class Inventory : MonoBehaviour
     public void AddItem(GameObject item)
     {
         items.Add(item);
+        Debug.Log(item);
     }
 
     public bool checkItems(string itemName)
@@ -50,5 +50,5 @@ public class Inventory : MonoBehaviour
         {
             Debug.LogWarning("Key image not assigned");
         }
-    }
+    } 
 }

@@ -11,18 +11,27 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] GameObject ragdoll;
 
     [SerializeField] private TextMeshProUGUI healthText;
+    public GameObject textBox;
+    public TextMeshProUGUI textComponent;
+
     public Slider healthbar;
     public Slider armourbar;
 
+    public GameObject ArmourSlider;
+
+    private bool shownWarn;
 
 
     Animator animator;
     void Start()
     {
+        textBox.SetActive(false);
+        ArmourSlider.SetActive(false);
         animator = GetComponent<Animator>();
         UpdateHealthUI();
         armour = 0;
         armourbar.value = 0;
+        shownWarn = false;
     }
 
     public float getHealth
@@ -38,13 +47,18 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
 
-
         armour -= damageAmount;
 
         if (armour <=0)
         {
             health += armour;
             armour = 0;
+            ArmourSlider.SetActive(false);
+
+            if(shownWarn == false)
+            {
+                warnArmour();
+            }
         }
 
         animator.SetTrigger("damage");
@@ -67,14 +81,44 @@ public class HealthSystem : MonoBehaviour
     {
         armour += armourValue;
         UpdateHealthUI();
-
+        ShowArmourBar();
+        shownWarn = false;
     }
+
+    private void ShowArmourBar()
+    {
+        if (ArmourSlider != null)
+        {
+            ArmourSlider.SetActive(true);
+            Debug.Log("Armour Bar On");
+        }
+        else
+        {
+            Debug.LogWarning("Armour Slide not assigned");
+        }
+    }
+
+    private void warnArmour()
+    {
+        textBox.SetActive(true);
+        textComponent.text = "Armour Destroyed";
+        shownWarn = true;
+        StartCoroutine(HideMessageAfterDelay(3));
+    }
+
+    IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        textBox.gameObject.SetActive(false);
+    }
+
 
     void Die()
     {
         Instantiate(ragdoll, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
+
     public void HitVFX(Vector3 hitPosition)
     {
         GameObject hit = Instantiate(hitVFX, hitPosition, Quaternion.identity);

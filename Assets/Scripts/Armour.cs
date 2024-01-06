@@ -9,7 +9,7 @@ public class Armour : MonoBehaviour
     private bool isPlayerNear = false;
 
     private HealthSystem playerHealthSystem;
-    public float armourincrease = 50f;
+    private float armourincrease = 50;
 
     public GameObject textBox;
     public TextMeshProUGUI textComponent;
@@ -96,7 +96,7 @@ public class Armour : MonoBehaviour
             if (pickupPromptCanvas != null)
                 pickupPromptCanvas.enabled = false; // Hide the Canvas
 
-            Debug.Log("Key has been stored in inventory");
+            Debug.Log("Armour has been stored in inventory"+ gameObject);
             playerHealthSystem.AddArmor(armourincrease);
         }
     }

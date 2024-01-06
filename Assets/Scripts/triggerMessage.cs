@@ -8,6 +8,7 @@ public class triggerMessage : MonoBehaviour
 
     public GameObject textBox;
     public TypeWriterEffect typeWriterEffect;
+    public int delayTime = 3;
 
     public string message;
 
@@ -21,7 +22,7 @@ public class triggerMessage : MonoBehaviour
         textBox.SetActive(true);
         typeWriterEffect.fullText = message;
         typeWriterEffect.RevealText();
-        StartCoroutine(HideMessageAfterDelay(3));
+        StartCoroutine(HideMessageAfterDelay(delayTime));
     }
 
     IEnumerator HideMessageAfterDelay(float delay)
