@@ -21,10 +21,17 @@ public class triggerMessage : MonoBehaviour
         textBox.SetActive(true);
         typeWriterEffect.fullText = message;
         typeWriterEffect.RevealText();
+        StartCoroutine(HideMessageAfterDelay(3));
+    }
+
+    IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        textBox.SetActive(false);
     }
 
 
-    private void OnTriggerEnter(Collider other)
+private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -32,11 +39,5 @@ public class triggerMessage : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            textBox.SetActive(false);
-        }
-    }
+   
 }
