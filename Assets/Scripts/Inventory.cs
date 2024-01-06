@@ -50,5 +50,5 @@ public class Inventory : MonoBehaviour
         {
             Debug.LogWarning("Key image not assigned");
         }
-    } 
+    }
 }
