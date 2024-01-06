@@ -5,6 +5,8 @@ using UnityEngine;
 public class moveDoor : MonoBehaviour
 {
     private bool playerInRange = false;
+    private bool isDoorOpen = false;
+
 
     void Update()
     {
@@ -18,6 +20,19 @@ public class moveDoor : MonoBehaviour
     void OpenDoor()
     {
         transform.rotation = Quaternion.Euler(0, 40, 0);
+        isDoorOpen = true;
+        StartCoroutine(CloseDoorAfterDelay(30));
+    }
+
+    IEnumerator CloseDoorAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        CloseDoor();
+    }
+    void CloseDoor()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        isDoorOpen = false;
     }
 
 
