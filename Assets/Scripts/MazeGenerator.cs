@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MazeGenerator : MonoBehaviour
 {
@@ -16,16 +17,20 @@ public class MazeGenerator : MonoBehaviour
 
     private MazeCell[,] _mazeGrid;
 
+    private Vector3 position;
+
     // Start is called before the first frame update
     void Start()
     {
+        position = gameObject.transform.position;
+
         _mazeGrid = new MazeCell[_mazeWidth, _mazeDepth];
 
         for (int x = 0; x < _mazeWidth; x++)
         {
             for (int z = 0; z < _mazeDepth; z++)
             {
-                _mazeGrid[x, z] = Instantiate(_mazeCellPrefab, new Vector3(x*10, 0, z*10), Quaternion.identity);
+                _mazeGrid[x, z] = Instantiate(_mazeCellPrefab, position + new Vector3(x*10, 0, z*10), Quaternion.identity);
                 
             }
         }
@@ -60,8 +65,8 @@ public class MazeGenerator : MonoBehaviour
 
     private IEnumerable<MazeCell> GetUnvisitedCells(MazeCell currentCell)
     {
-        int x = (int)currentCell.transform.position.x / 10;
-        int z = (int)currentCell.transform.position.z / 10;
+        int x = ((int)currentCell.transform.position.x - (int)position.x) / 10;
+        int z = ((int)currentCell.transform.position.z - (int)position.z) / 10;
 
         if (x + 1 < _mazeWidth)
         {
