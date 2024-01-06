@@ -7,6 +7,7 @@ public class CombatState : State
     bool sheathWeapon;
     float playerSpeed;
     bool attack;
+    bool jump;
  
     Vector3 cVelocity;
  
@@ -25,6 +26,7 @@ public class CombatState : State
         currentVelocity = Vector3.zero;
         gravityVelocity.y = 0;
         attack = false;
+        jump = false;
  
         velocity = character.playerVelocity;
         playerSpeed = character.playerSpeed;
@@ -35,8 +37,8 @@ public class CombatState : State
     public override void HandleInput()
     {
         base.HandleInput();
- 
-        if (drawWeaponAction.triggered)
+
+        if (grounded && drawWeaponAction.triggered)
         {
             sheathWeapon = true;
         }
@@ -45,7 +47,12 @@ public class CombatState : State
         {
             attack = true;
         }
- 
+
+        if (grounded && jumpAction.triggered)
+        {
+            jump = true;
+        }
+
         input = moveAction.ReadValue<Vector2>();
         velocity = new Vector3(input.x, 0, input.y);
  
@@ -70,6 +77,12 @@ public class CombatState : State
         {
             character.animator.SetTrigger("attack");
             stateMachine.ChangeState(character.attacking);
+        }
+
+        if (jump)
+        {
+            character.animator.SetTrigger("jump");
+            stateMachine.ChangeState(character.jumpcombatting);
         }
     }
  
