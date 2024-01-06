@@ -64,7 +64,6 @@ public class keyDoor : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         textBox.gameObject.SetActive(false);
-        
     }
 
     private void OnTriggerEnter(Collider other)
