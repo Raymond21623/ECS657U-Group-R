@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -67,18 +68,29 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void GoToMainMenu()
+    {
+        pauseMenu.SetActive(false);
+        if (mainMenuCanvas != null)
         {
-            pauseMenu.SetActive(false);
-            if (mainMenuCanvas != null)
-            {
-                mainMenuCanvas.SetActive(true); // Activate the main menu canvas
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-            Time.timeScale = 0f; // Optional, if you want to pause the game in the background
-            isPaused = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            mainMenuCanvas.SetActive(true); // Activate the main menu canvas
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        Time.timeScale = 0f;
+        isPaused = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void ChangeGameplayMusic(AudioClip newMusic)
+    {
+        Debug.Log("Music Being Changed");
+        gameplayMusic = newMusic;
+        if (audioSource != null)
+        {
+            audioSource.clip = gameplayMusic;
+            audioSource.Play();
+        }
+    }
 
     public void ExitGame()
     {
