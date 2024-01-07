@@ -22,7 +22,7 @@ Modular Castle
 Type: 3D Environments - Dungeons
 Source: Unity Asset Store (https://assetstore.unity.com/packages/3d/environments/dungeons/modular-castle-121360)
 
-Polygonal’s Low Poly Particle Pack
+Polygonals Low Poly Particle Pack
 Type: VFX - Particles
 Source: Unity Asset Store (https://assetstore.unity.com/packages/vfx/particles/polygonal-s-low-poly-particle-pack-118355)
 

@@ -40,6 +40,8 @@ void Start()
     {
         Time.timeScale = 1f;
         mainMenuCanvas.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         if (audioSource != null && gameplayMusic != null)
         {
