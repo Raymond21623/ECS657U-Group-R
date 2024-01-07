@@ -45611,7 +45611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -494.6, y: -291}
+  m_AnchoredPosition: {x: -486.30005, y: -255.00002}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340637879
@@ -55600,7 +55600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1355384246}
   typeWriterEffect: {fileID: 1285909201}
-  delayTime: 3
+  delayTime: 5
   message: To Jump, Put Sword [R] Away
 --- !u!65 &1621401761
 BoxCollider:
@@ -74375,6 +74375,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1613952726769034526, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -238
+      objectReference: {fileID: 0}
     - target: {fileID: 2192106692413380460, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -74389,7 +74393,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: e51d4931b3b3c194cb17e52ae4e36cac, type: 3}
     - target: {fileID: 2448818988425366459, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -493.7
+      value: -485.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448818988425366459, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -259
       objectReference: {fileID: 0}
     - target: {fileID: 2461913876191312690, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: health
@@ -74415,6 +74423,18 @@ PrefabInstance:
       propertyPath: textComponent
       value: 
       objectReference: {fileID: 2121800897}
+    - target: {fileID: 2862959373446113781, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -238
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487112663035545587, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487112663035545587, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3898926420408937322, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_SizeDelta.x
       value: 400
@@ -74434,6 +74454,10 @@ PrefabInstance:
     - target: {fileID: 5307441639609370921, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290324234168577066, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6490998964451985971, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: keyImage
@@ -74534,6 +74558,10 @@ PrefabInstance:
     - target: {fileID: 7829827786061765992, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522466546925534904, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
