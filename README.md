@@ -47,7 +47,7 @@ The assets listed above have been utilized to enhance various aspects of the gam
 All assets are credited to their respective creators and have been used in accordance with their usage guidelines and licensing.
 
 
-##How to play: 
+How to play: 
 
 WASD to move
 
