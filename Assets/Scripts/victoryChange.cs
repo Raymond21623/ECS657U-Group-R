@@ -7,8 +7,9 @@ public class victoryChange : MonoBehaviour
     public Transform[] spawnPoints;
 
     public GameObject destroyEnemies;
-
     public FinalEnemy bossenemy;
+
+    public AudioClip newGameplayMusic;
 
     private bool bossDefeated = false;
 
@@ -34,6 +35,7 @@ public class victoryChange : MonoBehaviour
     public void OnBossDefeated()
     {
         SpawnVillagers();
+        changeMusic();
     }
 
     void SpawnVillagers()
@@ -56,10 +58,20 @@ public class victoryChange : MonoBehaviour
                 // Instantiate the villager at the new position
                 Instantiate(villagerPrefab, newPosition, newRotation);
             }
+        }
+    }
 
-           
-
-            
+    private void changeMusic()
+    {
+        PauseMenu pauseMenu = FindObjectOfType<PauseMenu>();
+        if (pauseMenu != null)
+        {
+            pauseMenu.ChangeGameplayMusic(newGameplayMusic);
+            Debug.Log("Music Changed to: " + newGameplayMusic.name);
+        }
+        else
+        {
+            Debug.LogError("PauseMenu instance not found in the scene.");
         }
     }
 }
