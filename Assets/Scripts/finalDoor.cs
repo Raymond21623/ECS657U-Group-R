@@ -23,7 +23,7 @@ public class finalDoor : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            if (!isDoorOpen && playerInventory != null && playerInventory.checkItems("finalKey(Clone)"))
+            if (!isDoorOpen && playerInventory != null && playerInventory.checkItems("finalKey"))
             {
                 OpenDoor();
             }
