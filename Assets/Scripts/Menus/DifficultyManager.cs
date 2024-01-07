@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public static class DifficultyManager
 {
     public static float DifficultyMultiplier { get; private set; } = 1f; // Default is medium
@@ -19,5 +21,6 @@ public static class DifficultyManager
                 DifficultyMultiplier = 1f;
                 break;
         }
+        Debug.Log($"Difficulty set to {difficulty}, Multiplier: {DifficultyMultiplier}");
     }
 }
