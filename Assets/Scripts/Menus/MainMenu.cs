@@ -30,6 +30,11 @@ void Start()
     }
 }
 
+    public void SelectDifficulty(string difficulty)
+    {
+        DifficultyManager.SetDifficulty(difficulty);
+        PlayGame();
+    }
 
     public void PlayGame()
     {

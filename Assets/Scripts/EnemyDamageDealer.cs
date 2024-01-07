@@ -9,6 +9,7 @@ public class EnemyDamageDealer : MonoBehaviour
  
     [SerializeField] float weaponLength;
     [SerializeField] float weaponDamage;
+    [SerializeField] private float baseWeaponDamage;
     void Start()
     {
         canDealDamage = false;
@@ -20,6 +21,7 @@ public class EnemyDamageDealer : MonoBehaviour
     {
         if (canDealDamage && !hasDealtDamage)
         {
+            weaponDamage = baseWeaponDamage * DifficultyManager.DifficultyMultiplier;
             RaycastHit hit;
  
             int layerMask = 1 << 8;
