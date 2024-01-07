@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class victoryChange : MonoBehaviour
@@ -11,11 +13,15 @@ public class victoryChange : MonoBehaviour
 
     public AudioClip newGameplayMusic;
 
+    public GameObject textBox;
+    public TextMeshProUGUI textComponent;
+
     private bool bossDefeated = false;
 
     private void Start()
     {
         destroyEnemies.SetActive(true);
+        textBox.SetActive(false);
     }
 
 
@@ -23,12 +29,11 @@ public class victoryChange : MonoBehaviour
     {
 
         Debug.Log("Final Boss: " + bossenemy.GetBossHealth);
-        if (!bossDefeated && bossenemy != null && bossenemy.GetBossHealth == 1)
+        if (!bossDefeated &&  bossenemy==null)
         {
             OnBossDefeated();
             bossDefeated = true;
             destroyEnemies.SetActive(false);
-
         }
     }
 
@@ -36,6 +41,7 @@ public class victoryChange : MonoBehaviour
     {
         SpawnVillagers();
         changeMusic();
+        ShowMessage();
     }
 
     void SpawnVillagers()
@@ -73,5 +79,18 @@ public class victoryChange : MonoBehaviour
         {
             Debug.LogError("PauseMenu instance not found in the scene.");
         }
+    }
+
+    private void ShowMessage()
+    {
+        textBox.SetActive(true);
+        textComponent.text = "Cheer Cheer! Our King";
+        StartCoroutine(HideMessageAfterDelay(3));
+    }
+
+    IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        textBox.gameObject.SetActive(false);
     }
 }

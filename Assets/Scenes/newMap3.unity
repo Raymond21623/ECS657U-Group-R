@@ -72104,6 +72104,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 716755376}
     m_Modifications:
+    - target: {fileID: 354671755959753313, guid: bb29f72e99b0198499186ab6e0cb60dc, type: 3}
+      propertyPath: m_Name
+      value: VillagerCheer
+      objectReference: {fileID: 0}
     - target: {fileID: 1128112921548161243, guid: bb29f72e99b0198499186ab6e0cb60dc, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.7499998
@@ -72155,10 +72159,6 @@ PrefabInstance:
     - target: {fileID: 1128112921548161243, guid: bb29f72e99b0198499186ab6e0cb60dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 354671755959753313, guid: bb29f72e99b0198499186ab6e0cb60dc, type: 3}
-      propertyPath: m_Name
-      value: VillagerCheer
       objectReference: {fileID: 0}
     - target: {fileID: 6433374944303110817, guid: bb29f72e99b0198499186ab6e0cb60dc, type: 3}
       propertyPath: m_Controller
@@ -74837,6 +74837,8 @@ MonoBehaviour:
   destroyEnemies: {fileID: 1961752021}
   bossenemy: {fileID: 9062986309429188720}
   newGameplayMusic: {fileID: 8300000, guid: de55399a86c1d174bb2ade9b06650adc, type: 3}
+  textBox: {fileID: 1581792411}
+  textComponent: {fileID: 2121800897}
 --- !u!1001 &5915897475129697319
 PrefabInstance:
   m_ObjectHideFlags: 0
