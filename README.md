@@ -95,4 +95,6 @@ https://raymond21623.github.io/ECS657U-Group-R-Builds/v0.1/index.html
 Third Build
 https://raymond21623.github.io/ECS657U-Group-R-Builds/v0.2/index.html
 
+Final Build
+https://raymond21623.github.io/ECS657U-Group-R-Builds/v1.0/index.html
 
