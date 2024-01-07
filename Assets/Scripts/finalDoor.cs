@@ -13,10 +13,13 @@ public class finalDoor : MonoBehaviour
     public GameObject textBox;
     public TextMeshProUGUI textComponent;
 
+    public GameObject textBox2;
+    public TextMeshProUGUI textComponent2;
+
     void Start()
     {
         textBox.SetActive(false);
-
+        textBox2.SetActive(false);
     }
 
     void Update()
@@ -55,7 +58,11 @@ public class finalDoor : MonoBehaviour
     private void ShowMessage()
     {
         textBox.SetActive(true);
+        textBox2.SetActive(true);
+
         textComponent.text = "Missing Final Key";
+        textComponent2.text = "Discover All Rooms For Key";
+
         StartCoroutine(HideMessageAfterDelay(3));
 
     }
