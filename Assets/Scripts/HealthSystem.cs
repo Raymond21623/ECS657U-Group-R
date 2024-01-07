@@ -112,9 +112,17 @@ public class HealthSystem : MonoBehaviour
         textBox.gameObject.SetActive(false);
     }
 
+    public GameObject deathScreen;
 
     void Die()
     {
+        if (deathScreen != null)
+        {
+            deathScreen.SetActive(true);
+            Time.timeScale = 0f; 
+            Cursor.lockState = CursorLockMode.None; 
+            Cursor.visible = true; 
+        }
         Instantiate(ragdoll, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
