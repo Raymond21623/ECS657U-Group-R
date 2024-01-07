@@ -10,9 +10,11 @@ public class FinalEnemy : MonoBehaviour
     NavMeshAgent agent;
     Animator animator;
 
+    private Enemy enemyscript;
+
     public float moveDistance = 5f;
     public float floatHeight = 10f;
-    public float floatDownTime = 5f; 
+    public float floatDownTime = 5f;
 
     private bool hasTriggered = false;
 
@@ -21,6 +23,12 @@ public class FinalEnemy : MonoBehaviour
 
     void Start()
     {
+        enemyscript = GetComponent<Enemy>();
+        if (enemyscript == null)
+        {
+            Debug.LogError("Enemy script not found on the final boss!");
+        }
+
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -101,9 +109,14 @@ public class FinalEnemy : MonoBehaviour
     private Vector3 GetNewPosition()
     {
         Vector3 randomDirection = Random.insideUnitSphere;
-        randomDirection.y = 0; 
+        randomDirection.y = 0;
         randomDirection.z *= moveDistance;
 
         return new Vector3(transform.position.x + 10, transform.position.y, transform.position.z + randomDirection.z);
+    }
+
+    public float GetBossHealth
+    {
+        get { return enemyscript.Health; }
     }
 }

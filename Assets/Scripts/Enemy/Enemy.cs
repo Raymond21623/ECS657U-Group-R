@@ -95,6 +95,12 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+
+    public float Health
+    {
+        get { return health; }
+    }
+
     public void StartDealDamage()
     {
          GetComponentInChildren<EnemyDamageDealer>().StartDealDamage();
