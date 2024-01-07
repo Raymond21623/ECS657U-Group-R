@@ -9,6 +9,7 @@ public class EnemyDamageDealer : MonoBehaviour
  
     [SerializeField] float weaponLength;
     [SerializeField] float weaponDamage;
+    private float damageAfterDifficulty;
     void Start()
     {
         canDealDamage = false;
@@ -20,8 +21,6 @@ public class EnemyDamageDealer : MonoBehaviour
     {
         if (canDealDamage && !hasDealtDamage)
         {
-            weaponDamage *= DifficultyManager.DifficultyMultiplier;
-            Debug.Log($"weaponDamage: {weaponDamage}, Multiplier: {DifficultyManager.DifficultyMultiplier}, Final Damage: {weaponDamage}");
 
             RaycastHit hit;
  
@@ -30,7 +29,7 @@ public class EnemyDamageDealer : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent(out HealthSystem health))
                 {
-                    health.TakeDamage(weaponDamage);
+                    health.TakeDamage(damageAfterDifficulty);
                     health.HitVFX(hit.point);
                     print("enemy has dealt damage!");
                     hasDealtDamage = true;
@@ -40,6 +39,8 @@ public class EnemyDamageDealer : MonoBehaviour
     }
     public void StartDealDamage()
     {
+        damageAfterDifficulty = weaponDamage * DifficultyManager.DifficultyMultiplier; 
+        Debug.Log($"weaponDamage: {weaponDamage}, Multiplier: {DifficultyManager.DifficultyMultiplier}, Final Damage: {damageAfterDifficulty}");
         canDealDamage = true;
         hasDealtDamage = false;
     }
