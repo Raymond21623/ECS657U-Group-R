@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject mainMenuCanvas;
     public GameObject healthCanvas; // Reference to the health canvas
     public static bool isPaused;
 
@@ -66,11 +67,18 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void GoToMainMenu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Main");
-        isPaused = false;
-    }
+        {
+            pauseMenu.SetActive(false);
+            if (mainMenuCanvas != null)
+            {
+                mainMenuCanvas.SetActive(true); // Activate the main menu canvas
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            Time.timeScale = 0f; // Optional, if you want to pause the game in the background
+            isPaused = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
     public void ExitGame()
     {

@@ -3,22 +3,44 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject healthCanvas;
     public AudioSource audioSource; 
     public AudioClip menuMusic; 
+    public AudioClip gameplayMusic;
+    public GameObject mainMenuCanvas;
 
-    void Start()
+void Start()
+{
+    if (GameStateManager.isRestarting)
     {
+        PlayGame();
+        GameStateManager.isRestarting = false; 
+    }
+    else
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        mainMenuCanvas.SetActive(true); 
+
         if (audioSource != null && menuMusic != null)
         {
             audioSource.clip = menuMusic;
             audioSource.Play();
         }
     }
+}
+
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1f;
+        mainMenuCanvas.SetActive(false);
+
+        if (audioSource != null && gameplayMusic != null)
+        {
+            audioSource.clip = gameplayMusic;
+            audioSource.Play();
+        }
     }
 
     public void QuitGame()
