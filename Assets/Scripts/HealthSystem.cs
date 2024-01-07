@@ -17,6 +17,7 @@ public class HealthSystem : MonoBehaviour
     public Slider healthbar;
     public Slider armourbar;
 
+    public GameObject HealthbarSlider;
     public GameObject ArmourSlider;
 
     private int shownWarn;
@@ -25,6 +26,7 @@ public class HealthSystem : MonoBehaviour
     Animator animator;
     void Start()
     {
+        HealthbarSlider.SetActive(false);
         textBox.SetActive(false);
         ArmourSlider.SetActive(false);
         animator = GetComponent<Animator>();
@@ -46,6 +48,7 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        HealthbarSlider.SetActive(true);
 
         armour -= damageAmount;
 
@@ -65,10 +68,9 @@ public class HealthSystem : MonoBehaviour
         UpdateHealthUI();
         if (health <= 0)
         {
+            HealthbarSlider.SetActive(false);
             Die();
         }
-
-
     }
 
     public void IncreaseHealth(float amount)

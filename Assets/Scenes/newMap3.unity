@@ -16675,6 +16675,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 125426, guid: 64cb684f38ab4e547a77225cd823cf62, type: 3}
   m_PrefabInstance: {fileID: 1044611771}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &434966074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4029392456757264009, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+  m_PrefabInstance: {fileID: 1764221279237032881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &435331749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83007,9 +83012,21 @@ PrefabInstance:
       propertyPath: textComponent
       value: 
       objectReference: {fileID: 2121800897}
+    - target: {fileID: 2461913876191312690, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: HealthbarSlider
+      value: 
+      objectReference: {fileID: 434966074}
     - target: {fileID: 2862959373446113781, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -238
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269910153070698026, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269910153070698026, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3487112663035545587, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_UiScaleMode
