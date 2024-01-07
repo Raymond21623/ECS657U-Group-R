@@ -19,7 +19,7 @@ public class HealthSystem : MonoBehaviour
 
     public GameObject ArmourSlider;
 
-    private bool shownWarn;
+    private int shownWarn;
 
 
     Animator animator;
@@ -31,7 +31,7 @@ public class HealthSystem : MonoBehaviour
         UpdateHealthUI();
         armour = 0;
         armourbar.value = 0;
-        shownWarn = false;
+        shownWarn = 0;
     }
 
     public float getHealth
@@ -55,7 +55,7 @@ public class HealthSystem : MonoBehaviour
             armour = 0;
             ArmourSlider.SetActive(false);
 
-            if(shownWarn == false)
+            if(shownWarn > 0)
             {
                 warnArmour();
             }
@@ -82,7 +82,7 @@ public class HealthSystem : MonoBehaviour
         armour += armourValue;
         UpdateHealthUI();
         ShowArmourBar();
-        shownWarn = false;
+        shownWarn += 1;
     }
 
     private void ShowArmourBar()
@@ -98,11 +98,11 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    private void warnArmour()
+    private void warnArmour() 
     {
         textBox.SetActive(true);
         textComponent.text = "Armour Destroyed";
-        shownWarn = true;
+        shownWarn = 0;
         StartCoroutine(HideMessageAfterDelay(3));
     }
 

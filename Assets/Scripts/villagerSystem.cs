@@ -2,11 +2,11 @@
 
 Villager: Your Majesty, you've returned! But... you look so different. What happened to you in the dungeons?
 Me: Dungeons? I remember nothing but shadows and cold stone walls. Tell me, what has happened?
-Villager: It's been miserable since you were taken. The usurper, Loris, he struck you down and claimed your crown.
-Me: Loris? My own advisor turned against me?
-Villager: Yes, and under his rule, the kingdom has suffered greatly. We've awaited your return, our true king.
+Villager: It's been miserable since you were taken. The usurper, Morena, she struck you down and claimed your crown.
+Me: Morena? My own advisor turned against me?
+Villager: Yes, and under her rule, the kingdom has suffered greatly. We've awaited your return, our true king.
 Me: My crown... I had forgotten. The weight of it, the responsibility.
-Villager: You were more than just a ruler; you were a beacon of hope. We need you to reclaim the throne and free us from Loris's tyranny
+Villager: You were more than just a ruler; you were a beacon of hope. We need you to reclaim the throne and free us from Morena's tyranny
 Me: But how do I reclaim my throne?
 Villager: Do not worry, let  Eric The Wise teach you some skills...
 */
@@ -27,8 +27,10 @@ Eric The Wise: With your sword equipped, use the left mouse button to strike. Fo
 Me: (performs a few strikes and combos) Like this?
 Eric The Wise: Excellent! Remember, timing and rhythm are key to effective combos. Finally, press 'F' to interact with doors and villagers like myself.
 Me: (presses F to interact) Interaction seems simple enough.
-Eric The Wise: You may need to pickup items such as key, use 'E' to pickup. Also, you will not be able to jump or crouch when you have your sword to make sure he don't hear us.
+Eric The Wise: You may need to pickup items such as key, use 'E' to pickup. Also, you will not be able to jump or crouch when you have your sword to make sure she don't hear us.
 Me: I see, thanks for the information.
+Eric The Wise: Behind me, I gift you some armour to help you fight these villians, don't tell anyone, I will lose(die) my job.
+Me: I will use this armour, thank you very much for this awesome gift.
 Eric The Wise: Yes, it is. With these skills, you are ready to face the challenges ahead. Remember if you need pause, just press ESC. 
 w*/
 
@@ -36,13 +38,25 @@ w*/
 
 Villager: Ah, brave hero! You've done well to reach this point. But the true challenge lies ahead.
 Me: What must I do next?
-Villager: You must journey to the castle. Within its walls, enemies and the false king await.
-Me: The king... He betrayed us all. I will face him."
-Villager: Be cautious. The castle is heavily guarded, and the king is a formidable foe."
+Villager: You must journey to the castle. Within its walls, enemies and the false leader await.
+Me: Morena... She betrayed us all. I will face her."
+Villager: Be cautious. The castle is heavily guarded, and Morena is a formidable foe."
 Me: I am ready. How do I reach the castle?"
 Villager: I possess an ancient spell of teleportation. When you are ready step on to the white square. Once there, fight bravely and reclaim your rightful place as our ruler.
 Me: I am prepared. Let's do this.
 Villager: Very well. May the light guide you. *chants an ancient spell* Farewell, hero, until you return as our king! Also, eat some food on the table.
+*/
+
+/* VillagerFM
+
+Villager: Wow, you defeated against all these villian and here at her lair.
+Me: What can I say, I am the rightful King.
+Villager: That was right, I remember all you fights, oh well, across this corridor is her lair. Open the doors and defeat her and become our King.
+Me: Morena.. She will get what she deserves, but anything I should know before I go there.
+Villager: Be cautious. The lair is heavily guarded with 5 guards, and Morena herself."
+Me: I am ready.
+Villager: Great, check your health and armour everytime, near me there is food and a new set of armour.
+Me: I am prepared. Let's do this. Thanks for the food and armour.
 */
 
 
