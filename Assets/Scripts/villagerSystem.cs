@@ -47,7 +47,7 @@ Me: I am prepared. Let's do this.
 Villager: Very well. May the light guide you. *chants an ancient spell* Farewell, hero, until you return as our king! Also, eat some food on the table.
 */
 
-/* VillagerFM
+/* VillagerCD
 
 Villager: Wow, you defeated against all these villian and here at her lair.
 Me: What can I say, I am the rightful King.
