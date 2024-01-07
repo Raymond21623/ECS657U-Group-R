@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877f997a512704b8db7ca129b939726c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 0}
-  typeWriterEffect: {fileID: 0}
+  textBox: {fileID: 1355384246}
+  typeWriterEffect: {fileID: 1285909201}
   delayTime: 3
   message: Castle Of Doom
 --- !u!65 &2605499
@@ -44226,12 +44226,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 160242, guid: eda319de497b2a4449c2ab39265a3ac5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1316321299}
+    - targetCorrespondingSourceObject: {fileID: 160242, guid: eda319de497b2a4449c2ab39265a3ac5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1316321306}
     - targetCorrespondingSourceObject: {fileID: 124420, guid: eda319de497b2a4449c2ab39265a3ac5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1316321290}
     - targetCorrespondingSourceObject: {fileID: 124420, guid: eda319de497b2a4449c2ab39265a3ac5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1316321298}
+    - targetCorrespondingSourceObject: {fileID: 124420, guid: eda319de497b2a4449c2ab39265a3ac5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1316321303}
   m_SourcePrefab: {fileID: 100100000, guid: eda319de497b2a4449c2ab39265a3ac5, type: 3}
 --- !u!1 &1316321288 stripped
 GameObject:
@@ -44317,6 +44323,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 15.469887, y: 8.734683, z: 11.443741}
   m_Center: {x: -3.9644945, y: 4.6326575, z: -1.6928179}
+--- !u!64 &1316321303
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316321288}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300050, guid: a7cc7f41ce50a474aa1df610be0b810f, type: 3}
+--- !u!64 &1316321306
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316321289}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300048, guid: a7cc7f41ce50a474aa1df610be0b810f, type: 3}
 --- !u!1001 &1317417452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57230,8 +57280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877f997a512704b8db7ca129b939726c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 0}
-  typeWriterEffect: {fileID: 0}
+  textBox: {fileID: 1355384246}
+  typeWriterEffect: {fileID: 1285909201}
   delayTime: 3
   message: Tutorial Level
 --- !u!65 &1677205525
