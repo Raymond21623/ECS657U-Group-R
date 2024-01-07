@@ -17,6 +17,8 @@ Eric The Wise: Ah, you have arrived! Before you embark on your quest, you must m
 Me: I'm ready to learn. What should I do first?
 Eric The Wise: First, let's start with movement. Use 'W' to move forward, 'A' to move left, 'S' to move back, and 'D' to move right. Try moving around to get a feel for it.
 Me: (moves around) Alright, that feels natural.
+Eric The Wise: To sprint around hold 'Left Shift'.
+Me: Will come in handy.
 Eric The Wise: Good. Now, press 'Space' to jump. This can help you overcome obstacles or avoid attacks.
 Me: (jumps) Got it. What's next?
 Eric The Wise: To keep a low profile, use 'C' to crouch.
