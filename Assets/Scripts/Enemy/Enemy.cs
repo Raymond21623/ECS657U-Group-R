@@ -25,12 +25,18 @@ public class Enemy : MonoBehaviour
     Animator animator;
     float timePassed;
     float newDestinationCD = 0.5f;
+    private float speedAfterDifficulty;
+    private float baseSpeed;
  
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        baseSpeed = agent.speed;
+        speedAfterDifficulty = baseSpeed * DifficultyManager.SpeedMultiplier;
+        agent.speed = speedAfterDifficulty;
+        Debug.Log($"Base Speed: {baseSpeed}, Multiplier: {DifficultyManager.SpeedMultiplier}, Adjusted Speed: {speedAfterDifficulty}");
     }
  
     // Update is called once per frame
@@ -38,7 +44,7 @@ public class Enemy : MonoBehaviour
     {
 
         healthbar.value = health;
-        animator.SetFloat("speed", agent.velocity.magnitude / agent.speed);
+        animator.SetFloat("speed", agent.velocity.magnitude / speedAfterDifficulty);
  
         if (player == null)
         {
@@ -62,6 +68,14 @@ public class Enemy : MonoBehaviour
         }
         newDestinationCD -= Time.deltaTime;
         transform.LookAt(player.transform);
+
+        float currentSpeed = baseSpeed * DifficultyManager.SpeedMultiplier;
+        if (agent.speed != currentSpeed)
+        {
+            agent.speed = currentSpeed;
+            speedAfterDifficulty = currentSpeed;
+            Debug.Log($"Adjusted Speed: {agent.speed}, Multiplier: {DifficultyManager.SpeedMultiplier}, New Speed: {speedAfterDifficulty}");
+        }
     }
  
     private void OnCollisionEnter(Collision collision)
