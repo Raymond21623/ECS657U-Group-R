@@ -51,6 +51,14 @@ Space to jump
 
 LeftShift to sprint
 
+C to Crouch
+
+E to Pick UP
+
+F to Interact(Villagers/Doors)
+
+R to Toggle Draw Weapon
+
 UI:
 Main menu
 Text to tell the narrative 
@@ -61,16 +69,14 @@ Playing:
 Attacking enemies
 Collecting items
 Movement in all directions
-Puzzles 
+Puzzles/Maze 
 Inventory
-Opening doors / chests
+Opening doors
 Enemy strength increases each level
 
-So our main character has lost his memory and each level he completes he finds a scroll and tells him more and more about his life and once he reaches the top he finds out he is the king of the castle
+So our main character has lost his memory and got put into jail from the Evil Queen, and now he came back to his castle and the villagers help him to become King again, by defeating the enemy and final boss.
 
-Potential Names:
-
-The Lost King
+Lost Kingdom
 
 First Build
 https://raymond21623.github.io/ECS657U-Group-R-Builds/v0.0/index.html
