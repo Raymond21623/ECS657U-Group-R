@@ -6,9 +6,17 @@ This README file provides a detailed list of all external assets reused in the p
 
 Asset List
 
+Chair
+Type: 3D Props
+Source: https://assetstore.unity.com/packages/3d/props/furniture/chair-and-armchair-26360
+
 Fantasy Skybox Free
 Type: Textures/Materials - Sky
 Source: Unity Asset Store (https://assetstore.unity.com/packages/2d/textures-materials/sky/fantasy-skybox-free-18353)
+
+Food
+Type: 3D Props
+Source: https://assetstore.unity.com/packages/3d/props/food/rpg-food-drinks-pack-121067
 
 Melee Warrior Animations Free
 Type: 3D Animations
@@ -39,7 +47,7 @@ The assets listed above have been utilized to enhance various aspects of the gam
 All assets are credited to their respective creators and have been used in accordance with their usage guidelines and licensing.
 
 
-How to play: 
+##How to play: 
 
 WASD to move
 
