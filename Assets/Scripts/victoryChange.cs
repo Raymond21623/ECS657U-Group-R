@@ -27,8 +27,6 @@ public class victoryChange : MonoBehaviour
 
     void Update()
     {
-
-        Debug.Log("Final Boss: " + bossenemy.GetBossHealth);
         if (!bossDefeated &&  bossenemy==null)
         {
             OnBossDefeated();
