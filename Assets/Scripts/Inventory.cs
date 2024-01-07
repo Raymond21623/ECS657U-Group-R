@@ -5,11 +5,15 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public List<GameObject> items = new List<GameObject>();
-    public GameObject keyImage;
+    public GameObject door_keyImage;
+    public GameObject final_keyImage;
+
 
     private void Start()
     {
-        keyImage.SetActive(false);
+        door_keyImage.SetActive(false);
+        final_keyImage.SetActive(false);
+
     }
 
 
@@ -18,6 +22,10 @@ public class Inventory : MonoBehaviour
         if (items != null && checkItems("doorKey(Clone)"))
         {
             ShowKeyImage();
+        }
+        if (items != null && checkItems("finalKey"))
+        {
+            ShowFinalKeyImage();
         }
     }
 
@@ -42,9 +50,22 @@ public class Inventory : MonoBehaviour
 
     private void ShowKeyImage()
     {
-        if (keyImage != null)
+        if (door_keyImage != null)
         {
-            keyImage.SetActive(true);
+            door_keyImage.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Key image not assigned");
+        }
+    }
+
+    private void ShowFinalKeyImage()
+    {
+        if (final_keyImage != null)
+        {
+            door_keyImage.SetActive(false);
+            final_keyImage.SetActive(true);
         }
         else
         {

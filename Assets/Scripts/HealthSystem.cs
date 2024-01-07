@@ -80,6 +80,10 @@ public class HealthSystem : MonoBehaviour
     public void AddArmor(float armourValue)
     {
         armour += armourValue;
+        if(armour > 50)
+        {
+            armour = 50;
+        }
         UpdateHealthUI();
         ShowArmourBar();
         shownWarn += 1;
