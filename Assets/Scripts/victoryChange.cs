@@ -4,22 +4,30 @@ public class victoryChange : MonoBehaviour
 {
 
     public GameObject villagerPrefab;
-    public Transform[] spawnPoints; 
-    public int villagersToSpawn = 10;
+    public Transform[] spawnPoints;
+
+    public GameObject destroyEnemies;
 
     public FinalEnemy bossenemy;
 
     private bool bossDefeated = false;
+
+    private void Start()
+    {
+        destroyEnemies.SetActive(true);
+    }
 
 
     void Update()
     {
 
         Debug.Log("Final Boss: " + bossenemy.GetBossHealth);
-        if (!bossDefeated && bossenemy != null && bossenemy.GetBossHealth == 15)
+        if (!bossDefeated && bossenemy != null && bossenemy.GetBossHealth == 1)
         {
             OnBossDefeated();
             bossDefeated = true;
+            destroyEnemies.SetActive(false);
+
         }
     }
 
@@ -30,18 +38,28 @@ public class victoryChange : MonoBehaviour
 
     void SpawnVillagers()
     {
-        float xOffset = 10f; // The amount by which the x-coordinate will be increased for each villager
+        float xOffset = 10f; 
+        float zOffset = 10f;
 
-        for (int i = 0; i < villagersToSpawn; i++)
+        Vector3 startingPosition = new Vector3(102, 0, -195);
+
+
+        for (int j = 0; j < 5; j++ )
         {
-            // Get a random spawn point
-            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            for(int i = 0; i < 6; i++)
+            {
+                Vector3 newPosition = startingPosition + new Vector3(xOffset * i, 0, zOffset * j);
 
-            // Create a new position with the x-coordinate offset for each villager
-            Vector3 newPosition = spawnPoint.position + new Vector3(xOffset * i, 0, 0);
+                // Set the rotation to 90 degrees on the y-axis
+                Quaternion newRotation = Quaternion.Euler(0, 180, 0);
 
-            // Instantiate the villager at the new position
-            Instantiate(villagerPrefab, newPosition, spawnPoint.rotation);
+                // Instantiate the villager at the new position
+                Instantiate(villagerPrefab, newPosition, newRotation);
+            }
+
+           
+
+            
         }
     }
 }
