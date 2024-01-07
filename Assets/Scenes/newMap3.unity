@@ -74836,6 +74836,7 @@ MonoBehaviour:
   - {fileID: 280719718}
   destroyEnemies: {fileID: 1961752021}
   bossenemy: {fileID: 9062986309429188720}
+  newGameplayMusic: {fileID: 8300000, guid: de55399a86c1d174bb2ade9b06650adc, type: 3}
 --- !u!1001 &5915897475129697319
 PrefabInstance:
   m_ObjectHideFlags: 0
