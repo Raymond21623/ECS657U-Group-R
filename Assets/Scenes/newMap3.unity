@@ -82966,7 +82966,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1613952726769034526, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -238
+      value: -219
       objectReference: {fileID: 0}
     - target: {fileID: 2192106692413380460, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: pauseMenu
@@ -83018,7 +83018,7 @@ PrefabInstance:
       objectReference: {fileID: 434966074}
     - target: {fileID: 2862959373446113781, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -238
+      value: -223
       objectReference: {fileID: 0}
     - target: {fileID: 3269910153070698026, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_UiScaleMode
@@ -83162,7 +83162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8522466546925534904, guid: ae00ee331c274e941ae48bfecf17e0d9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -295
+      value: -241
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
