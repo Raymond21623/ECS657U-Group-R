@@ -6,6 +6,8 @@ This README file provides a detailed list of all external assets reused in the p
 
 Asset List
 
+Used mixamo.com for skins and animations.
+
 Chair
 Type: 3D Props
 Source: https://assetstore.unity.com/packages/3d/props/furniture/chair-and-armchair-26360
